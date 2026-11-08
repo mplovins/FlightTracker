@@ -408,7 +408,7 @@ async function getJSON(url, { gap = 0, timeout = 12000 } = {}) {
 }
 /* Servidor intermedio (Cloudflare Worker, ver worker.js). Los servidores ADS-B
    no admiten llamadas directas desde una web, así que pasamos por él. */
-const PROXY_DEFAULT = "";
+const PROXY_DEFAULT = "https://skyline.mplovins.workers.dev";
 const proxyParam = new URLSearchParams(location.search).get("proxy");
 if (proxyParam) store.set("proxy", proxyParam);
 const cleanProxy = u => (u || "").trim().replace(/\/+$/, "").replace(/^(?!https?:\/\/)(?=.)/, "https://");
