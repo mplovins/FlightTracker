@@ -10,6 +10,17 @@ App web de un solo archivo (`index.html`) para seguir vuelos sobre el mapa, sin 
 
 Atajos: `/` para buscar, `Esc` para cerrar. Puedes compartir un vuelo con el enlace `index.html#IB3166`.
 
+## Configuración inicial (una sola vez)
+
+Los servidores públicos de posiciones ADS-B no permiten consultas directas desde una página web (CORS), así que la app usa un pequeño servidor intermedio gratuito en Cloudflare Workers (`worker.js`).
+
+1. Crea una cuenta gratis en https://dash.cloudflare.com/sign-up
+2. Workers & Pages > Create > Start with Hello World > nombre `skyline` > Deploy.
+3. Edit code > borra todo y pega el contenido de `worker.js` (la app tiene un botón "Copiar código") > Deploy.
+4. Copia la dirección (`https://skyline.tunombre.workers.dev`) y pégala en la app, en Ajustes (icono del engranaje).
+
+También se puede pasar en el enlace: `https://mplovins.github.io/FlightTracker/?proxy=https://skyline.tunombre.workers.dev`
+
 ## Qué muestra
 
 - Posición en directo, rumbo y estela del recorrido (actualización cada 5 s).
@@ -20,8 +31,8 @@ Atajos: `/` para buscar, `Esc` para cerrar. Puedes compartir un vuelo con el enl
 
 ## Fuentes de datos (gratuitas, sin clave)
 
-- Posiciones ADS-B: [airplanes.live](https://airplanes.live), [adsb.lol](https://adsb.lol) y [adsb.fi](https://adsb.fi) (con conmutación automática si uno falla).
+- Posiciones ADS-B: [adsb.lol](https://adsb.lol), [adsb.fi](https://adsb.fi) y [airplanes.live](https://airplanes.live), consultadas a través del Worker, que pasa a la siguiente fuente si una falla.
 - Rutas, aerolíneas y aviones: [adsbdb.com](https://www.adsbdb.com).
-- Mapas: CARTO / OpenStreetMap y Esri.
+- Mapas: Esri (sin clave).
 
 La cobertura depende de la red comunitaria de receptores: sobre océanos o zonas remotas el vuelo puede desaparecer temporalmente.
