@@ -418,7 +418,7 @@ let preferred = 0;
 // Pregunta al servidor intermedio, o a los proveedores ADS-B por orden si no hay
 async function adsb(kind, ...args) {
   if (PROXY) {
-    const d = await getJSON(`${PROXY}/${kind}/${args.map(encodeURIComponent).join("/")}`);
+    const d = await getJSON(`${PROXY}/${kind}/${args.map(encodeURIComponent).join("/")}`, { timeout: 15000 });
     return (d && (d.ac || d.aircraft)) || [];
   }
   let lastErr;
