@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+<script src="vendor/leaflet/leaflet.js"></script>
 <style>
   :root {
     --bg: #0b1020;
@@ -272,16 +272,17 @@
 
 <div id="setup" class="modal-bg">
   <div class="modal glass">
-    <h2>Conecta el servidor de datos</h2>
-    <p>Los servidores públicos de posiciones de aviones no dejan que una web los consulte directamente. La solución es un pequeño servidor intermedio <b>gratuito</b> en Cloudflare. Solo hay que hacerlo una vez (unos 5 minutos).</p>
+    <h2>Conecta tu servidor de datos</h2>
+    <p>Los servidores públicos de posiciones de aviones no dejan que una web los consulte directamente, así que Skyline usa un pequeño servidor intermedio. Lo montamos <b>gratis en Google</b> con tu cuenta de Gmail: en España los operadores bloquean Cloudflare durante los partidos de LaLiga, pero no Google. Solo hay que hacerlo una vez (unos 5 minutos).</p>
     <ol>
-      <li>Crea una cuenta gratis en <a href="https://dash.cloudflare.com/sign-up" target="_blank" rel="noopener">dash.cloudflare.com</a>.</li>
-      <li>Ve a <b>Workers &amp; Pages</b>, pulsa <b>Create</b>, elige <b>Start with Hello World</b>, ponle de nombre <b>skyline</b> y pulsa <b>Deploy</b>.</li>
-      <li>Pulsa <b>Edit code</b>, borra todo el código y pega el de Skyline. <button type="button" class="link-btn" id="copyWorker">Copiar código</button></li>
-      <li>Pulsa <b>Deploy</b> y copia la dirección que te da, del tipo <span class="mono">skyline.tunombre.workers.dev</span>.</li>
-      <li>Pégala aquí:</li>
+      <li>Pulsa <button type="button" class="link-btn" id="copyCode">Copiar código</button></li>
+      <li>Abre <a href="https://script.google.com/home" target="_blank" rel="noopener">script.google.com</a> y pulsa <b>Nuevo proyecto</b>. Borra las 3 líneas que aparecen y pega el código.</li>
+      <li>Guarda con el icono del <b>disquete</b>. Después pulsa <b>Implementar</b> y luego <b>Nueva implementación</b>.</li>
+      <li>En el engranaje de <b>Seleccionar tipo</b> elige <b>Aplicación web</b>. En <b>Quién tiene acceso</b> elige <b>Cualquier usuario</b> (no "con cuenta de Google"). Pulsa <b>Implementar</b>.</li>
+      <li>Pulsa <b>Autorizar acceso</b> y elige tu cuenta. Si aparece "Google no ha verificado esta aplicación", pulsa <b>Configuración avanzada</b>, luego <b>Ir a Proyecto sin título (no seguro)</b> y <b>Permitir</b>. Es tu propio código, solo lee datos públicos de vuelos.</li>
+      <li>Copia la <b>URL de la aplicación web</b> (termina en <span class="mono">/exec</span>) y pégala aquí:</li>
     </ol>
-    <input id="proxyInput" type="url" placeholder="https://skyline.tunombre.workers.dev" spellcheck="false" autocapitalize="off" autocorrect="off" />
+    <input id="proxyInput" type="url" placeholder="https://script.google.com/macros/s/.../exec" spellcheck="false" autocapitalize="off" autocorrect="off" />
     <div class="modal-msg" id="setupMsg"></div>
     <div class="modal-actions">
       <button type="button" class="btn ghost" id="setupCancel">Cerrar</button>
@@ -296,29 +297,14 @@
 
 /* =====================================================================
    Configuración y fuentes de datos (todas gratuitas, sin clave ni anuncios)
-   - Posiciones ADS-B en tiempo real: airplanes.live, adsb.lol, adsb.fi
+   - Posiciones ADS-B en tiempo real: adsb.lol y adsb.fi, a través de un
+     servidor intermedio propio (los servidores ADS-B no aceptan llamadas
+     directas desde una web)
    - Ruta, aerolínea y datos del avión: adsbdb.com
    ===================================================================== */
-const PROVIDERS = [
-  { name: "airplanes.live", gap: 1100,
-    callsign: c => `https://api.airplanes.live/v2/callsign/${c}`,
-    hex: h => `https://api.airplanes.live/v2/hex/${h}`,
-    reg: r => `https://api.airplanes.live/v2/reg/${r}`,
-    point: (la, lo, nm) => `https://api.airplanes.live/v2/point/${la}/${lo}/${nm}` },
-  { name: "adsb.lol", gap: 600,
-    callsign: c => `https://api.adsb.lol/v2/callsign/${c}`,
-    hex: h => `https://api.adsb.lol/v2/hex/${h}`,
-    reg: r => `https://api.adsb.lol/v2/reg/${r}`,
-    point: (la, lo, nm) => `https://api.adsb.lol/v2/point/${la}/${lo}/${nm}` },
-  { name: "adsb.fi", gap: 1100,
-    callsign: c => `https://opendata.adsb.fi/api/v2/callsign/${c}`,
-    hex: h => `https://opendata.adsb.fi/api/v2/hex/${h}`,
-    reg: r => `https://opendata.adsb.fi/api/v2/registration/${r}`,
-    point: (la, lo, nm) => `https://opendata.adsb.fi/api/v2/lat/${la}/lon/${lo}/dist/${nm}` },
-];
 const ADSBDB = "https://api.adsbdb.com/v0";
 const TRACK_INTERVAL = 5000;
-const TRAFFIC_INTERVAL = 12000;
+const TRAFFIC_INTERVAL = 15000;
 
 // IATA -> ICAO de las aerolíneas más habituales (los transpondedores emiten el código ICAO)
 const AIRLINES = {
@@ -406,31 +392,50 @@ async function getJSON(url, { gap = 0, timeout = 12000 } = {}) {
     return await r.json();
   } finally { clearTimeout(t); }
 }
-/* Servidor intermedio (Cloudflare Worker, ver worker.js). Los servidores ADS-B
-   no admiten llamadas directas desde una web, así que pasamos por él. */
-const PROXY_DEFAULT = "https://skyline.mplovins.workers.dev";
-const proxyParam = new URLSearchParams(location.search).get("proxy");
-if (proxyParam) store.set("proxy", proxyParam);
-const cleanProxy = u => (u || "").trim().replace(/\/+$/, "").replace(/^(?!https?:\/\/)(?=.)/, "https://");
-let PROXY = cleanProxy(store.get("proxy", "") || PROXY_DEFAULT);
+/* Servidores intermedios, por orden de preferencia:
+   1) Tu servidor en Google Apps Script (google-apps-script.js): en España funciona
+      siempre, porque los bloqueos de LaLiga no afectan a Google.
+   2) Cloudflare Worker (worker.js): reserva. En España los operadores bloquean
+      Cloudflare durante los partidos de fútbol. */
+const GOOGLE_SERVER_DEFAULT = "";
+const DEFAULT_SERVERS = ["https://skyline.mplovins.workers.dev"];
+const isGoogle = u => /^https:\/\/script\.google(usercontent)?\.com\//.test(u || "");
+function cleanServer(u) {
+  u = String(u || "").trim().replace(/\s+/g, "");
+  if (!u) return "";
+  if (!/^https?:\/\//.test(u)) u = "https://" + u;
+  return isGoogle(u) ? u.replace(/[?#].*$/, "") : u.replace(/\/+$/, "");
+}
+const urlParams = new URLSearchParams(location.search);
+const serverParam = urlParams.get("server") || urlParams.get("proxy");
+if (serverParam) store.set("server", cleanServer(serverParam));
+let userServer = cleanServer(store.get("server", "") || GOOGLE_SERVER_DEFAULT);
+const servers = () => [...new Set([userServer, ...DEFAULT_SERVERS].filter(Boolean))];
+const serverUrl = (base, path) => isGoogle(base) ? `${base}?p=${encodeURIComponent(path)}` : `${base}/${path}`;
+const hostOf = u => { try { return new URL(u).host; } catch { return u; } };
+const errText = e => e && e.name === "AbortError" ? "tiempo agotado" : (e && e.message) || "error";
+let goodServer = null;
 
-let preferred = 0;
-// Pregunta al servidor intermedio, o a los proveedores ADS-B por orden si no hay
+async function callServer(base, path, timeout = 12000) {
+  const d = await getJSON(serverUrl(base, path), { timeout });
+  if (!d || typeof d !== "object") throw new Error("respuesta vacía");
+  if (d.error) throw new Error(d.error);
+  return d;
+}
+// Pregunta a los servidores intermedios por orden y recuerda el último que respondió
 async function adsb(kind, ...args) {
-  if (PROXY) {
-    const d = await getJSON(`${PROXY}/${kind}/${args.map(encodeURIComponent).join("/")}`, { timeout: 15000 });
-    return (d && (d.ac || d.aircraft)) || [];
-  }
-  let lastErr;
-  for (let i = 0; i < PROVIDERS.length; i++) {
-    const idx = (preferred + i) % PROVIDERS.length, p = PROVIDERS[idx];
+  const path = `${kind}/${args.map(a => encodeURIComponent(String(a))).join("/")}`;
+  const list = servers();
+  if (goodServer && list.includes(goodServer)) list.sort((a, b) => (b === goodServer) - (a === goodServer));
+  const errors = [];
+  for (const base of list) {
     try {
-      const d = await getJSON(p[kind](...args), { gap: p.gap });
-      preferred = idx;
-      return (d && (d.ac || d.aircraft)) || [];
-    } catch (e) { lastErr = e; }
+      const d = await callServer(base, path);
+      goodServer = base;
+      return d.ac || d.aircraft || [];
+    } catch (e) { errors.push(`${hostOf(base)}: ${errText(e)}`); }
   }
-  throw lastErr || new Error("Sin conexión");
+  throw new Error(errors.join(" · ") || "sin servidor configurado");
 }
 async function routeInfo(cs) {
   try {
@@ -604,8 +609,8 @@ async function search(raw) {
     startTracking(ac, q, route);
   } catch (e) {
     if (token !== state.token) return;
-    if (!PROXY) { hideToast(); openSetup(); }
-    else toast(`No se ha podido conectar con el servidor de datos (${PROXY.replace(/^https?:\/\//, "")}: ${e && e.name === "AbortError" ? "tiempo agotado" : (e && e.message) || "error"}). Revisa tu conexión o la dirección en Ajustes.`, { err: true, ms: 9000 });
+    if (!userServer) { hideToast(); openSetup(); }
+    else toast(`No se ha podido conectar con el servidor de datos (${e.message}). Revisa tu conexión o el servidor en Ajustes.`, { err: true, ms: 9000 });
   }
 }
 $("#searchForm").addEventListener("submit", e => { e.preventDefault(); search($("#q").value); });
@@ -926,7 +931,7 @@ async function loadTraffic() {
       m.addTo(trafficLayer);
     }
     setStatus(true);
-  } catch { setStatus(false); if (!PROXY) return; }
+  } catch { setStatus(false); }
   state.trafficTimer = setTimeout(loadTraffic, TRAFFIC_INTERVAL);
 }
 async function trackFromTraffic(ac) {
@@ -968,45 +973,50 @@ document.addEventListener("keydown", e => {
 document.addEventListener("visibilitychange", () => { if (!document.hidden) scheduleTraffic(0); });
 
 /* ===================== Ajustes: servidor intermedio ===================== */
+let serverCode = null;
+async function loadServerCode() {
+  if (serverCode) return serverCode;
+  try { serverCode = await (await fetch("google-apps-script.js", { cache: "no-store" })).text(); } catch {}
+  return serverCode;
+}
 function openSetup() {
-  $("#proxyInput").value = PROXY;
+  $("#proxyInput").value = userServer;
   $("#setupMsg").textContent = ""; $("#setupMsg").className = "modal-msg";
   $("#setup").classList.add("open");
+  loadServerCode(); // se descarga antes para poder copiarlo al instante (Safari lo exige)
 }
 const closeSetup = () => $("#setup").classList.remove("open");
 $("#btnSettings").onclick = openSetup;
 $("#setupCancel").onclick = closeSetup;
 $("#setup").addEventListener("click", e => { if (e.target.id === "setup") closeSetup(); });
-$("#copyWorker").onclick = async () => {
+$("#copyCode").onclick = () => {
   const msg = $("#setupMsg");
-  try {
-    const code = await (await fetch("worker.js", { cache: "no-store" })).text();
-    await navigator.clipboard.writeText(code);
-    msg.className = "modal-msg ok"; msg.textContent = "Código copiado. Ahora pégalo en Cloudflare.";
-  } catch {
-    window.open("worker.js", "_blank");
-    msg.className = "modal-msg"; msg.textContent = "Se ha abierto el código en otra pestaña: selecciónalo todo y cópialo.";
-  }
+  const fallback = () => { window.open("google-apps-script.js", "_blank"); msg.className = "modal-msg"; msg.textContent = "Se ha abierto el código en otra pestaña: selecciónalo todo y cópialo."; };
+  if (!serverCode || !navigator.clipboard) { fallback(); return; }
+  navigator.clipboard.writeText(serverCode).then(() => {
+    msg.className = "modal-msg ok"; msg.textContent = "Código copiado. Ahora pégalo en tu proyecto de Google.";
+  }, fallback);
 };
 $("#setupSave").onclick = async () => {
-  const url = cleanProxy($("#proxyInput").value), msg = $("#setupMsg");
-  if (!url) { PROXY = ""; store.set("proxy", ""); closeSetup(); return; }
-  msg.className = "modal-msg"; msg.textContent = "Probando conexión…";
+  const url = cleanServer($("#proxyInput").value), msg = $("#setupMsg");
+  if (!url) { userServer = ""; store.set("server", ""); closeSetup(); return; }
+  msg.className = "modal-msg"; msg.textContent = "Probando conexión… (la primera vez Google puede tardar unos segundos)";
   try {
-    const d = await getJSON(`${url}/point/40.4/-3.6/50`, { timeout: 15000 });
-    if (!d || !Array.isArray(d.ac || d.aircraft)) throw new Error("respuesta no válida");
-    PROXY = url; store.set("proxy", url);
-    msg.className = "modal-msg ok"; msg.textContent = `Conectado (${(d.ac || d.aircraft).length} aviones cerca de Madrid ahora mismo).`;
-    setTimeout(() => { closeSetup(); scheduleTraffic(0); const q = $("#q").value; if (q && !state.ac) search(q); }, 1200);
-  } catch {
-    msg.className = "modal-msg err"; msg.textContent = "No responde. Revisa que la dirección sea la de tu Worker y que hayas pulsado Deploy tras pegar el código.";
+    const d = await callServer(url, "point/40.4/-3.6/50", 25000);
+    const n = (d.ac || d.aircraft || []).length;
+    userServer = url; goodServer = url; store.set("server", url);
+    msg.className = "modal-msg ok"; msg.textContent = `Conectado: ${n} aviones cerca de Madrid ahora mismo.`;
+    setTimeout(() => { closeSetup(); scheduleTraffic(0); const q = $("#q").value; if (q && !state.ac) search(q); }, 1500);
+  } catch (e) {
+    msg.className = "modal-msg err";
+    msg.textContent = `No responde (${errText(e)}). Comprueba que la dirección termina en /exec y que en "Quién tiene acceso" elegiste "Cualquier usuario".`;
   }
 };
 
 /* ===================== Arranque ===================== */
 syncControls();
 renderChips();
-if (!PROXY) openSetup();
+if (!userServer) openSetup();
 measureTopbar();
 const initial = decodeURIComponent(location.hash.slice(1));
 if (initial) { $("#q").value = initial; search(initial); }

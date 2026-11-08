@@ -12,14 +12,17 @@ Atajos: `/` para buscar, `Esc` para cerrar. Puedes compartir un vuelo con el enl
 
 ## Configuración inicial (una sola vez)
 
-Los servidores públicos de posiciones ADS-B no permiten consultas directas desde una página web (CORS), así que la app usa un pequeño servidor intermedio gratuito en Cloudflare Workers (`worker.js`).
+Los servidores públicos de posiciones ADS-B no permiten consultas directas desde una página web (CORS), así que la app usa un pequeño servidor intermedio. Se monta gratis en **Google Apps Script** (`google-apps-script.js`), porque en España los operadores bloquean direcciones de Cloudflare durante los partidos de LaLiga y Google no se ve afectado.
 
-1. Crea una cuenta gratis en https://dash.cloudflare.com/sign-up
-2. Workers & Pages > Create > Start with Hello World > nombre `skyline` > Deploy.
-3. Edit code > borra todo y pega el contenido de `worker.js` (la app tiene un botón "Copiar código") > Deploy.
-4. Copia la dirección (`https://skyline.tunombre.workers.dev`) y pégala en la app, en Ajustes (icono del engranaje).
+1. En la app, abre Ajustes (engranaje) y pulsa **Copiar código**.
+2. Entra en https://script.google.com, pulsa **Nuevo proyecto**, borra las 3 líneas que trae y pega el código. Guarda.
+3. **Implementar** > **Nueva implementación** > tipo **Aplicación web** > Quién tiene acceso: **Cualquier usuario** > **Implementar**.
+4. Autoriza el acceso (si aparece "Google no ha verificado esta aplicación": Configuración avanzada > Ir a … (no seguro) > Permitir).
+5. Copia la **URL de la aplicación web** (termina en `/exec`) y pégala en Ajustes.
 
-También se puede pasar en el enlace: `https://mplovins.github.io/FlightTracker/?proxy=https://skyline.tunombre.workers.dev`
+Para no tener que configurarlo en cada dispositivo, pon esa URL en `GOOGLE_SERVER_DEFAULT` dentro de `index.html`.
+
+`worker.js` (Cloudflare Workers) se mantiene como servidor de reserva: la app lo usa si el de Google falla.
 
 ## Qué muestra
 
@@ -31,7 +34,7 @@ También se puede pasar en el enlace: `https://mplovins.github.io/FlightTracker/
 
 ## Fuentes de datos (gratuitas, sin clave)
 
-- Posiciones ADS-B: [adsb.lol](https://adsb.lol), [adsb.fi](https://adsb.fi) y [airplanes.live](https://airplanes.live), consultadas a través del Worker, que pasa a la siguiente fuente si una falla.
+- Posiciones ADS-B: [adsb.lol](https://adsb.lol) y [adsb.fi](https://adsb.fi), consultadas a través del servidor intermedio, que pasa a la siguiente fuente si una falla.
 - Rutas, aerolíneas y aviones: [adsbdb.com](https://www.adsbdb.com).
 - Mapas: Esri (sin clave).
 
