@@ -605,7 +605,7 @@ async function search(raw) {
   } catch (e) {
     if (token !== state.token) return;
     if (!PROXY) { hideToast(); openSetup(); }
-    else toast("No se ha podido conectar con el servidor de datos. Revisa tu conexión o la dirección del servidor en Ajustes.", { err: true, ms: 7000 });
+    else toast(`No se ha podido conectar con el servidor de datos (${PROXY.replace(/^https?:\/\//, "")}: ${e && e.name === "AbortError" ? "tiempo agotado" : (e && e.message) || "error"}). Revisa tu conexión o la dirección en Ajustes.`, { err: true, ms: 9000 });
   }
 }
 $("#searchForm").addEventListener("submit", e => { e.preventDefault(); search($("#q").value); });
