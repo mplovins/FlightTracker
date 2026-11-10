@@ -206,6 +206,84 @@
   .btn { height: 42px; padding: 0 18px; border-radius: 12px; border: 0; cursor: pointer; font: 700 14px Inter, sans-serif; color: #0b1020; background: linear-gradient(135deg, var(--accent), #9b7cff); }
   .btn.ghost { background: rgba(255,255,255,.06); color: var(--text); border: 1px solid var(--line); }
 
+  /* ---------- Ajustes en secciones ---------- */
+  .modal { max-width: 520px; }
+  .modal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+  .modal-head h2 { margin: 0; }
+  .mset { padding: 16px 0 6px; border-top: 1px solid var(--line); }
+  .mset:first-of-type { border-top: 0; padding-top: 6px; }
+  .mset h3 { margin: 0 0 6px; font-size: 15px; display: flex; align-items: center; gap: 9px; }
+  .mset .num { width: 22px; height: 22px; border-radius: 50%; background: rgba(124,156,255,.15); color: var(--accent); display: grid; place-items: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
+  .mset .tag { margin-left: auto; font-size: 10.5px; font-weight: 800; color: var(--accent-2); text-transform: uppercase; letter-spacing: .05em; }
+  .mset .tag.warn { color: var(--warn); }
+  .mset p { margin: 0 0 8px; }
+  .mset details { margin: 4px 0 6px; }
+  .mset summary { cursor: pointer; color: var(--accent); font-size: 13px; font-weight: 600; padding: 4px 0; }
+  .mset ol { margin: 8px 0 4px; }
+  .mrow { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .mrow input { flex: 1 1 230px; width: auto; }
+  .mrow .btn { flex: 0 0 auto; height: 46px; }
+  .notice { display: none; font-size: 13px; line-height: 1.5; padding: 10px 12px; border-radius: 10px; margin: 6px 0; background: rgba(255,181,71,.1); border: 1px solid rgba(255,181,71,.3); color: var(--text); }
+  .notice.show { display: block; }
+
+  /* ---------- Horarios ---------- */
+  .sched-title { display: flex; align-items: center; gap: 8px; }
+  .sched-title > span:first-child { flex: 1; }
+  .sbadge { font-size: 10.5px; font-weight: 800; padding: 4px 8px; border-radius: 999px; text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+  .sbadge.neutral { background: rgba(148,160,192,.15); color: var(--muted); }
+  .sbadge.info { background: rgba(124,156,255,.15); color: var(--accent); }
+  .sbadge.go { background: rgba(79,227,193,.14); color: var(--accent-2); }
+  .sbadge.warn { background: rgba(255,181,71,.15); color: var(--warn); }
+  .sbadge.bad { background: rgba(255,93,115,.18); color: var(--danger); }
+  .mini-btn { width: 28px; height: 28px; border-radius: 8px; border: 1px solid var(--line); background: rgba(255,255,255,.04); color: var(--muted); display: grid; place-items: center; cursor: pointer; flex-shrink: 0; }
+  .mini-btn:hover { color: var(--text); }
+  .mini-btn svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .mini-btn.spin svg { animation: spin .9s linear infinite; }
+  .sc { padding: 12px 13px; border-radius: 12px; background: rgba(255,255,255,.035); border: 1px solid var(--line); margin-bottom: 8px; }
+  .sc-head { display: flex; align-items: baseline; gap: 8px; font-size: 12px; margin-bottom: 8px; }
+  .sc-dir { font-weight: 800; text-transform: uppercase; letter-spacing: .06em; font-size: 11px; color: var(--accent); }
+  .sc-apt { color: var(--text); font-weight: 600; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sc-tz { color: var(--faint); font-size: 11px; white-space: nowrap; }
+  .sc-times { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .tc .k { font-size: 11px; color: var(--muted); }
+  .tc .t { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; margin-top: 2px; letter-spacing: -0.01em; }
+  .tc .t sup { font-size: 10px; color: var(--warn); margin-left: 2px; }
+  .tc .t.ok, .dl.ok { color: var(--accent-2); }
+  .tc .t.warn, .dl.warn { color: var(--warn); }
+  .tc .t.bad, .dl.bad { color: var(--danger); }
+  .tc .t.early, .dl.early { color: var(--accent); }
+  .tc .t.muted { color: var(--muted); }
+  .dl { font-size: 11px; font-weight: 700; margin-top: 1px; }
+  .sc-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .pill { font-size: 12px; padding: 5px 9px; border-radius: 8px; background: rgba(124,156,255,.08); border: 1px solid rgba(124,156,255,.18); color: var(--muted); }
+  .pill b { color: var(--text); font-weight: 700; margin-left: 2px; }
+  .sc-none { font-size: 11.5px; color: var(--faint); margin-top: 8px; }
+  .sched-foot { font-size: 11px; color: var(--faint); line-height: 1.5; margin-top: 2px; }
+  .sc.loading { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 13px; }
+  .sc-empty { font-size: 13px; color: var(--muted); padding: 4px 0 8px; line-height: 1.5; }
+  .cta { display: flex; gap: 12px; align-items: center; padding: 13px; border-radius: 12px; background: linear-gradient(135deg, rgba(124,156,255,.12), rgba(79,227,193,.07)); border: 1px solid rgba(124,156,255,.25); }
+  .cta b { font-size: 14px; }
+  .cta p { margin: 4px 0 0; font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+  .btn.small { height: 36px; padding: 0 14px; font-size: 13px; flex-shrink: 0; }
+  .eta-src { font-size: 11px; color: var(--faint); margin-top: 2px; }
+  .photo-credit { font-size: 10.5px; color: var(--faint); margin: -4px 0 10px; }
+  .photo-credit a { color: var(--muted); }
+
+  /* ---------- Tráfico (canvas) ---------- */
+  .traffic-canvas { position: absolute; left: 0; top: 0; pointer-events: none; }
+  #hud { position: fixed; left: 50%; bottom: 14px; transform: translate(-50%, 160%); z-index: 900; padding: 8px 14px; border-radius: 999px; font-size: 12px; color: var(--muted);
+    display: flex; align-items: center; gap: 10px; white-space: nowrap; transition: transform .35s cubic-bezier(.2,.8,.2,1); max-width: calc(100vw - 32px); overflow: hidden; }
+  #hud.show { transform: translate(-50%, 0); }
+  #hud b { color: var(--text); font-weight: 700; }
+  .hud-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-2); flex-shrink: 0; }
+  .hud-hint { color: var(--warn); cursor: pointer; overflow: hidden; text-overflow: ellipsis; }
+  .hud-legend { display: flex; align-items: center; gap: 4px; color: var(--faint); }
+  .hud-legend i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-left: 6px; }
+  #ttip { position: fixed; z-index: 950; pointer-events: none; background: var(--glass-strong); border: 1px solid var(--line-strong); border-radius: 10px; padding: 7px 10px;
+    font: 600 12px Inter, sans-serif; color: var(--text); box-shadow: var(--shadow); display: none; transform: translate(16px, -50%); white-space: nowrap; }
+  #ttip small { display: block; color: var(--muted); font-weight: 500; margin-top: 2px; }
+  #map.over-plane { cursor: pointer; }
+
   /* ---------- Mobile ---------- */
   @media (max-width: 720px) {
     #topbar { top: 10px; left: 10px; right: 10px; width: auto; max-width: none; }
@@ -219,6 +297,9 @@
     #btnZoomIn, #btnZoomOut { display: none; }
     #layerMenu { right: 66px; bottom: auto; top: 150px; }
     body.panel-open #controls, body.panel-open #layerMenu { top: 140px; }
+    #hud { bottom: auto; top: 128px; }
+    body.panel-open #hud { display: none; }
+    .hud-legend { display: none; }
   }
   .grab { display: none; width: 44px; height: 5px; border-radius: 3px; background: rgba(255,255,255,.2); margin: 8px auto 0; cursor: pointer; flex-shrink: 0; }
 </style>
@@ -270,24 +351,85 @@
 
 <div id="toast" class="glass"></div>
 
+<div id="hud" class="glass"></div>
+<div id="ttip"></div>
+
 <div id="setup" class="modal-bg">
   <div class="modal glass">
-    <h2>Conecta tu servidor de datos</h2>
-    <p>Los servidores públicos de posiciones de aviones no dejan que una web los consulte directamente, así que Skyline usa un pequeño servidor intermedio. Lo montamos <b>gratis en Google</b> con tu cuenta de Gmail: en España los operadores bloquean Cloudflare durante los partidos de LaLiga, pero no Google. Solo hay que hacerlo una vez (unos 5 minutos).</p>
-    <ol>
-      <li>Pulsa <button type="button" class="link-btn" id="copyCode">Copiar código</button></li>
-      <li>Abre <a href="https://script.google.com/home" target="_blank" rel="noopener">script.google.com</a> y pulsa <b>Nuevo proyecto</b>. Borra las 3 líneas que aparecen y pega el código.</li>
-      <li>Guarda con el icono del <b>disquete</b>. Después pulsa <b>Implementar</b> y luego <b>Nueva implementación</b>.</li>
-      <li>En el engranaje de <b>Seleccionar tipo</b> elige <b>Aplicación web</b>. En <b>Quién tiene acceso</b> elige <b>Cualquier usuario</b> (no "con cuenta de Google"). Pulsa <b>Implementar</b>.</li>
-      <li>Pulsa <b>Autorizar acceso</b> y elige tu cuenta. Si aparece "Google no ha verificado esta aplicación", pulsa <b>Configuración avanzada</b>, luego <b>Ir a Proyecto sin título (no seguro)</b> y <b>Permitir</b>. Es tu propio código, solo lee datos públicos de vuelos.</li>
-      <li>Copia la <b>URL de la aplicación web</b> (termina en <span class="mono">/exec</span>) y pégala aquí:</li>
-    </ol>
-    <input id="proxyInput" type="url" placeholder="https://script.google.com/macros/s/.../exec" spellcheck="false" autocapitalize="off" autocorrect="off" />
-    <div class="modal-msg" id="setupMsg"></div>
-    <div class="modal-actions">
-      <button type="button" class="btn ghost" id="setupCancel">Cerrar</button>
-      <button type="button" class="btn" id="setupSave">Probar y guardar</button>
+    <div class="modal-head">
+      <h2>Ajustes</h2>
+      <button type="button" class="icon-btn" id="setupX" aria-label="Cerrar"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
     </div>
+
+    <section class="mset" id="setServer">
+      <h3><span class="num">1</span>Servidor de datos <span class="tag" id="serverTag"></span></h3>
+      <p>Skyline lee las posiciones de los aviones a través de un pequeño servidor tuyo en Google (gratis). En España los operadores bloquean Cloudflare durante los partidos de LaLiga, pero no Google.</p>
+      <div class="notice" id="serverNotice"></div>
+      <details id="updSteps">
+        <summary>Cómo actualizarlo a la última versión (2 minutos)</summary>
+        <ol>
+          <li>Pulsa <button type="button" class="link-btn copy-code">Copiar código</button></li>
+          <li>Abre tu proyecto en <a href="https://script.google.com/home" target="_blank" rel="noopener">script.google.com</a>. En la lista de archivos (<b>Files</b>), toca <b>⋮</b> junto a <b>Code.gs</b> y elige <b>Delete</b>.</li>
+          <li>Toca <b>+</b> junto a <b>Files</b>, elige <b>Script</b> y llámalo <b>Code</b>. Borra las 3 líneas que trae, pega el código y guarda con el icono del <b>disquete</b>.</li>
+          <li>Pulsa <b>Deploy</b>, luego <b>Manage deployments</b>, toca el <b>lápiz</b>, en <b>Version</b> elige <b>New version</b> y pulsa <b>Deploy</b>. La dirección /exec no cambia.</li>
+          <li>Vuelve aquí y pulsa <b>Probar y guardar</b>.</li>
+        </ol>
+      </details>
+      <details id="newSteps">
+        <summary>Cómo crearlo la primera vez (5 minutos)</summary>
+        <ol>
+          <li>Pulsa <button type="button" class="link-btn copy-code">Copiar código</button></li>
+          <li>Abre <a href="https://script.google.com/home" target="_blank" rel="noopener">script.google.com</a> y pulsa <b>New project</b>. Borra las 3 líneas que aparecen, pega el código y guarda con el <b>disquete</b>.</li>
+          <li>Pulsa <b>Deploy</b> y <b>New deployment</b>. En el engranaje de <b>Select type</b> elige <b>Web app</b>. En <b>Who has access</b> elige <b>Anyone</b> y pulsa <b>Deploy</b>.</li>
+          <li>Pulsa <b>Authorize access</b> y elige tu cuenta. En el aviso de Google pulsa <b>Advanced</b>, <b>Go to … (unsafe)</b> y <b>Allow</b>. Es tu propio código.</li>
+          <li>Copia la <b>Web app URL</b> (termina en <span class="mono">/exec</span>) y pégala aquí.</li>
+        </ol>
+      </details>
+      <div class="mrow">
+        <input id="proxyInput" type="url" placeholder="https://script.google.com/macros/s/.../exec" spellcheck="false" autocapitalize="off" autocorrect="off" />
+        <button type="button" class="btn" id="setupSave">Probar y guardar</button>
+      </div>
+      <div class="modal-msg" id="setupMsg"></div>
+    </section>
+
+    <section class="mset" id="setAdb">
+      <h3><span class="num">2</span>Horarios, puertas y retrasos <span class="tag" id="adbTag"></span></h3>
+      <p>Con AeroDataBox (gratis) cada vuelo muestra horas programadas, estimadas y reales, terminal, puerta, mostrador de facturación, cinta de equipaje y estado (embarcando, retrasado, cancelado…). El plan gratuito da para unas 200 consultas de vuelo al mes y Skyline guarda cada consulta 10 minutos para ahorrar.</p>
+      <details id="adbSteps">
+        <summary>Cómo conseguir la clave gratis (3 minutos)</summary>
+        <ol>
+          <li>Abre <a href="https://rapidapi.com/aedbx-aedbx/api/aerodatabox/pricing" target="_blank" rel="noopener">AeroDataBox en RapidAPI</a> y crea una cuenta (puedes entrar con Google).</li>
+          <li>En el plan <b>Basic</b> (0 $, 400 unidades al mes) pulsa el botón para suscribirte (<b>Start Free Plan</b> o <b>Subscribe</b>).</li>
+          <li>Abre la pestaña <b>Playground</b> (o <b>Endpoints</b>): entre las cabeceras verás <b>X-RapidAPI-Key</b>. Copia ese valor.</li>
+          <li>Pégalo aquí:</li>
+        </ol>
+      </details>
+      <div class="mrow">
+        <input id="adbInput" type="text" placeholder="Tu clave X-RapidAPI-Key" spellcheck="false" autocapitalize="off" autocorrect="off" autocomplete="off" />
+        <button type="button" class="btn" id="adbSave">Probar y guardar</button>
+      </div>
+      <div class="modal-msg" id="adbMsg"></div>
+    </section>
+
+    <section class="mset" id="setWorld">
+      <h3><span class="num">3</span>Tráfico mundial <span class="tag" id="worldTag"></span></h3>
+      <p>Con el zoom alejado ves los aviones de todo el mundo gracias a OpenSky Network; al acercarte, los datos más detallados de adsb.lol y adsb.fi. Funciona sin cuenta, con un cupo diario limitado. Si aparece "cupo agotado", puedes ampliarlo gratis:</p>
+      <details>
+        <summary>Ampliar el cupo con una cuenta gratuita de OpenSky</summary>
+        <ol>
+          <li>Crea una cuenta en <a href="https://opensky-network.org/" target="_blank" rel="noopener">opensky-network.org</a>.</li>
+          <li>En tu perfil (<b>Account</b>), en el apartado <b>API Client</b>, crea las credenciales y anota el <b>client_id</b> y el <b>client_secret</b>.</li>
+          <li>En tu proyecto de Google: <b>Project Settings</b> (engranaje de la izquierda), <b>Script Properties</b>, <b>Add script property</b>. Añade <span class="mono">OPENSKY_CLIENT_ID</span> y <span class="mono">OPENSKY_CLIENT_SECRET</span> con esos valores y pulsa <b>Save</b>. No hace falta volver a implementar.</li>
+        </ol>
+      </details>
+    </section>
+
+    <section class="mset">
+      <h3><span class="num">4</span>Usar Skyline en el iPhone</h3>
+      <p>Envíate un enlace con esta configuración y ábrelo en Safari en el otro dispositivo: quedará listo sin repetir nada. Contiene tu clave, así que mándatelo solo a ti.</p>
+      <button type="button" class="btn ghost" id="shareCfg">Enviar configuración</button>
+      <div class="modal-msg" id="shareMsg"></div>
+    </section>
   </div>
 </div>
 
@@ -304,7 +446,6 @@
    ===================================================================== */
 const ADSBDB = "https://api.adsbdb.com/v0";
 const TRACK_INTERVAL = 5000;
-const TRAFFIC_INTERVAL = 15000;
 
 // IATA -> ICAO de las aerolíneas más habituales (los transpondedores emiten el código ICAO)
 const AIRLINES = {
@@ -372,6 +513,7 @@ const state = {
   layer: store.get("layer", "dark"), traffic: store.get("traffic", true),
   favs: store.get("favs", []), recent: store.get("recent", []),
   trackTimer: null, trafficTimer: null, token: 0,
+  sched: null, schedStatus: null, schedErr: "", schedAt: 0, schedBusy: false, schedTimer: null,
 };
 
 /* ===================== Red ===================== */
@@ -463,6 +605,9 @@ const LAYERS = {
   sat: { base: esri("World_Imagery", 19), labels: esri("Reference/World_Boundaries_and_Places", 19) },
 };
 const map = L.map("map", { zoomControl: false, worldCopyJump: true, minZoom: 2, zoomSnap: 0.5 }).setView(store.get("view", [40.2, -3.7, 6]).slice(0, 2), store.get("view", [0, 0, 6])[2]);
+// Sin franjas vacías por encima de los polos al alejar el mapa
+map.setMaxBounds([[-85, -1080], [85, 1080]]);
+map.options.maxBoundsViscosity = 1;
 let baseLayer;
 function setLayer(name) {
   if (!LAYERS[name]) name = "dark";
@@ -488,8 +633,7 @@ function aptIcon(code, dest) {
 }
 
 const routeLayer = L.layerGroup().addTo(map);
-const trafficLayer = L.layerGroup().addTo(map);
-let mainMarker = null, trailLine = null, trailGlow = null, flownLine = null, remainLine = null;
+let mainMarker = null, trailLine = null, trailGlow = null, flownLine = null, remainLine = null, aptMarkers = [];
 
 /* ===================== Formato ===================== */
 const nf0 = new Intl.NumberFormat("es-ES", { maximumFractionDigits: 0 });
@@ -596,16 +740,20 @@ async function search(raw) {
       if (!ac && route && route.callsign_icao && !cands.includes(route.callsign_icao)) {
         ac = pickBest(await adsb("callsign", route.callsign_icao));
       }
+      // Último recurso: la foto mundial de OpenSky
+      if (!ac && traffic.world.size) {
+        const want = new Set(cands); if (route && route.callsign_icao) want.add(route.callsign_icao);
+        for (const a of traffic.world.values()) if (want.has(a.cs)) { ac = itemToAc(a); break; }
+      }
     }
     if (token !== state.token) return;
+    addRecent(q);
     if (!ac) {
-      if (route) { showRouteOnly(q, route); hideToast(); }
+      if (route || adbKey) { hideToast(); showRouteOnly(q, route); }
       else toast(`No hay ningún vuelo ${q} transmitiendo ahora mismo. Revisa el código o inténtalo cuando esté en el aire.`, { err: true, ms: 6000 });
-      addRecent(q);
       return;
     }
     hideToast();
-    addRecent(q);
     startTracking(ac, q, route);
   } catch (e) {
     if (token !== state.token) return;
@@ -618,12 +766,16 @@ $("#searchForm").addEventListener("submit", e => { e.preventDefault(); search($(
 /* ===================== Seguimiento ===================== */
 function stopTracking() {
   clearTimeout(state.trackTimer);
-  Object.assign(state, { hex: null, callsign: null, route: null, aircraft: null, ac: null, trail: [], misses: 0 });
+  clearTimeout(state.schedTimer);
+  Object.assign(state, { hex: null, callsign: null, route: null, aircraft: null, ac: null, trail: [], misses: 0,
+    sched: null, schedStatus: null, schedErr: "", schedAt: 0, schedBusy: false });
   routeLayer.clearLayers();
   mainMarker = trailLine = trailGlow = flownLine = remainLine = null;
+  aptMarkers = [];
+  requestDraw();
 }
 
-async function startTracking(ac, query, route) {
+async function startTracking(ac, query, route, opts = {}) {
   const token = state.token;
   state.hex = ac.hex.toLowerCase();
   state.callsign = (ac.flight || "").trim() || query;
@@ -644,6 +796,9 @@ async function startTracking(ac, query, route) {
   state.route = r; state.aircraft = a;
   drawRoute(); renderPanel(); fitFlight();
   loop();
+  // Horarios: automáticos en las búsquedas; bajo demanda al tocar un avión del mapa (ahorra cupo)
+  if (opts.schedule === false) { state.schedStatus = adbKey ? "idle" : "nokey"; renderPanel(); }
+  else lookupSchedule();
 }
 
 async function loop() {
@@ -655,7 +810,12 @@ async function loop() {
       const ac = pickBest(await adsb("hex", state.hex));
       if (token !== state.token) return;
       if (ac) { state.misses = 0; ingest(ac); }
-      else state.misses++;
+      else {
+        // Si adsb.lol/adsb.fi no lo ven, probamos con la foto mundial de OpenSky
+        const w = traffic.world.get(state.hex);
+        if (w && Date.now() - traffic.worldAt < 120000) { state.misses = 0; ingest(itemToAc(w)); }
+        else state.misses++;
+      }
       setStatus(true);
     } catch { state.misses++; setStatus(false); }
     if (token !== state.token) return;
@@ -700,11 +860,13 @@ function airports() {
   return { o: r.origin, d: r.destination, op: [r.origin.latitude, r.origin.longitude], dp: [r.destination.latitude, r.destination.longitude] };
 }
 function drawRoute() {
+  aptMarkers.forEach(m => routeLayer.removeLayer(m));
+  aptMarkers = [];
   const ap = airports(); if (!ap) return;
-  L.marker(ap.op, { icon: aptIcon(ap.o.iata_code || ap.o.icao_code), interactive: true })
-    .bindTooltip(`${esc(ap.o.name)}<small>${esc(ap.o.municipality)}, ${esc(ap.o.country_name)}</small>`, { className: "tt", direction: "top", offset: [0, -6] }).addTo(routeLayer);
-  L.marker(ap.dp, { icon: aptIcon(ap.d.iata_code || ap.d.icao_code, true), interactive: true })
-    .bindTooltip(`${esc(ap.d.name)}<small>${esc(ap.d.municipality)}, ${esc(ap.d.country_name)}</small>`, { className: "tt", direction: "top", offset: [0, -6] }).addTo(routeLayer);
+  aptMarkers.push(L.marker(ap.op, { icon: aptIcon(ap.o.iata_code || ap.o.icao_code), interactive: true })
+    .bindTooltip(`${esc(ap.o.name)}<small>${esc(ap.o.municipality)}, ${esc(ap.o.country_name)}</small>`, { className: "tt", direction: "top", offset: [0, -6] }).addTo(routeLayer));
+  aptMarkers.push(L.marker(ap.dp, { icon: aptIcon(ap.d.iata_code || ap.d.icao_code, true), interactive: true })
+    .bindTooltip(`${esc(ap.d.name)}<small>${esc(ap.d.municipality)}, ${esc(ap.d.country_name)}</small>`, { className: "tt", direction: "top", offset: [0, -6] }).addTo(routeLayer));
   drawRouteLines();
 }
 function drawRouteLines() {
@@ -732,11 +894,291 @@ function fitFlight() {
   state.follow = false;
 }
 
-function showRouteOnly(q, route) {
-  state.query = q; state.route = route; state.callsign = route.callsign_icao || q;
+async function showRouteOnly(q, route) {
+  const token = state.token;
+  state.query = q; state.route = route || null; state.callsign = (route && route.callsign_icao) || q;
   history.replaceState(null, "", "#" + encodeURIComponent(q));
-  drawRoute(); renderPanel(); openPanel(); fitFlight();
-  toast(`${q} no está transmitiendo ahora mismo. Te mostramos su ruta habitual.`, { ms: 5000 });
+  drawRoute(); renderPanel(); openPanel();
+  if (route) fitFlight();
+  if (!adbKey) {
+    lookupSchedule();
+    toast(`${q} no está transmitiendo ahora mismo. Te mostramos su ruta habitual.`, { ms: 5000 });
+    return;
+  }
+  await lookupSchedule();
+  if (token !== state.token) return;
+  if (!state.route && !state.sched) {
+    closePanel();
+    toast(`No encuentro el vuelo ${q}: no está en el aire ni tiene horarios publicados. Revisa el código.`, { err: true, ms: 6500 });
+    return;
+  }
+  toast(`${q} no está en el aire ahora mismo. Te mostramos su horario${state.route ? " y su ruta" : ""}.`, { ms: 4500 });
+}
+
+/* ===================== Horarios, puertas y retrasos (AeroDataBox) ===================== */
+// AeroDataBox (vía RapidAPI) admite llamadas directas desde la web y sus servidores (Amazon) no se
+// ven afectados por los bloqueos de LaLiga. La clave se guarda solo en este dispositivo.
+const ADB_HOST = "aerodatabox.p.rapidapi.com";
+const ADB = `https://${ADB_HOST}`;
+const ADB_CACHE_MS = 10 * 60 * 1000;   // una consulta se reutiliza 10 minutos
+const ADB_REFRESH_MS = 15 * 60 * 1000; // refresco automático mientras sigues el vuelo
+const ADB_MONTHLY_UNITS = 400;         // plan gratuito Basic (cada consulta de vuelo gasta 2)
+let adbKey = String(store.get("adbKey", "") || "").trim();
+
+function adbUsage() {
+  const month = new Date().toISOString().slice(0, 7);
+  const u = store.get("adbUsage", null);
+  return u && u.month === month ? u : { month, units: 0 };
+}
+function addAdbUsage(units) { const u = adbUsage(); u.units += units; store.set("adbUsage", u); }
+
+async function adbFetch(path, key = adbKey, units = 2) {
+  const ctl = new AbortController();
+  const t = setTimeout(() => ctl.abort(), 15000);
+  try {
+    const r = await fetch(ADB + path, { signal: ctl.signal, headers: { "x-rapidapi-key": key, "x-rapidapi-host": ADB_HOST } });
+    if (units && r.status !== 401 && r.status !== 403) addAdbUsage(units);
+    const text = await r.text();
+    let body = null;
+    try { body = text ? JSON.parse(text) : null; } catch {}
+    if (r.status === 204 || r.status === 404) return null;
+    if (!r.ok) {
+      const msg = (body && body.message) || "";
+      if (r.status === 401) throw new Error("la clave no es válida");
+      if (r.status === 403) throw new Error(/subscrib/i.test(msg) ? "falta suscribirse al plan gratuito Basic de AeroDataBox" : "acceso denegado");
+      if (r.status === 429) throw new Error(/quota/i.test(msg) ? "has agotado las consultas gratuitas de este mes" : "demasiadas consultas seguidas, prueba en un minuto");
+      throw new Error(`error ${r.status}${msg ? ": " + msg : ""}`);
+    }
+    return body;
+  } finally { clearTimeout(t); }
+}
+
+const parseT = v => { if (!v) return null; const t = Date.parse(String(v).trim().replace(" ", "T")); return isNaN(t) ? null : t; };
+function localParts(v) { const m = /(\d{4}-\d{2}-\d{2})[ T](\d{2}:\d{2})/.exec(v || ""); return m ? { date: m[1], time: m[2] } : null; }
+const dayDiff = (a, b) => Math.round((Date.parse(a + "T00:00:00Z") - Date.parse(b + "T00:00:00Z")) / 86400000);
+const pad2 = n => String(n).padStart(2, "0");
+function todayStr() { const d = new Date(); return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`; }
+function dayLabel(d) {
+  const diff = dayDiff(d, todayStr());
+  if (diff === 0) return "hoy";
+  if (diff === 1) return "mañana";
+  if (diff === -1) return "ayer";
+  return new Date(d + "T12:00:00Z").toLocaleDateString("es-ES", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" });
+}
+const safeUrl = u => /^https?:\/\//i.test(u || "") ? u : null;
+const regionNames = (() => { try { return new Intl.DisplayNames(["es"], { type: "region" }); } catch { return null; } })();
+
+function normFlight(f) {
+  const mv = m => m ? {
+    airport: m.airport || null,
+    sched: m.scheduledTime || null, revised: m.revisedTime || null, predicted: m.predictedTime || null, runway: m.runwayTime || null,
+    terminal: m.terminal || null, gate: m.gate || null, checkIn: m.checkInDesk || null, belt: m.baggageBelt || null,
+    quality: m.quality || [],
+  } : null;
+  const img = f.aircraft && f.aircraft.image;
+  return {
+    number: String(f.number || "").replace(/\s+/g, ""), callSign: f.callSign || null, status: f.status || "Unknown",
+    airline: f.airline || null, codeshare: f.codeshareStatus || null,
+    aircraft: f.aircraft ? {
+      reg: f.aircraft.reg || null, modeS: String(f.aircraft.modeS || "").toLowerCase() || null, model: f.aircraft.model || null,
+      image: img && safeUrl(img.url) ? { url: img.url, webUrl: safeUrl(img.webUrl), author: img.author || null } : null,
+    } : null,
+    dep: mv(f.departure), arr: mv(f.arrival),
+  };
+}
+
+const LIVE_STATUSES = ["EnRoute", "Departed", "Approaching", "Boarding", "GateClosed", "CheckIn", "Delayed"];
+function pickFlight(list) {
+  if (!list || !list.length) return null;
+  const now = Date.now(), r = state.route;
+  const o = r && r.origin && r.origin.iata_code, d = r && r.destination && r.destination.iata_code;
+  const score = f => {
+    let sc = 0;
+    if (state.hex && f.aircraft && f.aircraft.modeS === state.hex) sc += 100;
+    if (o && f.dep && f.dep.airport && f.dep.airport.iata === o) sc += 20;
+    if (d && f.arr && f.arr.airport && f.arr.airport.iata === d) sc += 20;
+    if (LIVE_STATUSES.includes(f.status)) sc += 30;
+    if (f.codeshare === "IsOperator") sc += 5;
+    const t = parseT(f.dep && ((f.dep.revised && f.dep.revised.utc) || (f.dep.sched && f.dep.sched.utc)));
+    if (t) sc -= Math.min(50, Math.abs(t - now) / 3600000);
+    return sc;
+  };
+  return list.slice().sort((x, y) => score(y) - score(x))[0];
+}
+
+function schedQueries() {
+  const out = [];
+  const add = (by, v) => { v = String(v || "").replace(/\s+/g, "").toUpperCase(); if (v && !out.some(q => q[0] === by && q[1] === v)) out.push([by, v]); };
+  const validNum = v => /^[A-Z0-9]{2}\d{1,4}[A-Z]?$/.test(v || "");
+  const routeNum = state.route && state.route.callsign_iata;
+  if (validNum(routeNum)) add("number", routeNum);
+  if (validNum(state.query) && !/^[A-Z]{3}\d/.test(state.query)) add("number", state.query);
+  if (state.callsign && /^[A-Z]{3}[A-Z0-9]{1,5}$/.test(state.callsign)) add("callsign", state.callsign);
+  if (!out.length && /^[A-Z]{3}\d{1,4}[A-Z]?$/.test(state.query || "")) add("number", state.query);
+  if (isReg(state.query || "")) add("reg", state.query);
+  if (!out.length && state.hex) add("icao24", state.hex);
+  return out.slice(0, 2);
+}
+
+function cacheGet(k) { const c = store.get("adbCache", {}); const e = c[k]; return e && Date.now() - e.t < ADB_CACHE_MS ? e : null; }
+function cachePut(k, data) {
+  const c = store.get("adbCache", {});
+  c[k] = { t: Date.now(), data };
+  Object.keys(c).sort((a, b) => c[b].t - c[a].t).slice(25).forEach(x => delete c[x]);
+  store.set("adbCache", c);
+}
+
+async function lookupSchedule({ force = false } = {}) {
+  clearTimeout(state.schedTimer);
+  if (!state.query) return;
+  if (!adbKey) { state.schedStatus = "nokey"; renderPanel(); return; }
+  const qs = schedQueries();
+  if (!qs.length) { state.schedStatus = "notfound"; renderPanel(); return; }
+  const token = state.token;
+  if (!state.sched) state.schedStatus = "loading";
+  state.schedBusy = true; renderPanel();
+  try {
+    let list = [], at = Date.now();
+    for (const [by, val] of qs) {
+      const key = `${by}:${val}`;
+      const hit = !force && cacheGet(key);
+      if (hit) { list = hit.data; at = hit.t; }
+      else {
+        const raw = await adbFetch(`/flights/${by}/${encodeURIComponent(val)}?withAircraftImage=true&withLocation=false`);
+        list = Array.isArray(raw) ? raw.map(normFlight) : [];
+        cachePut(key, list); at = Date.now();
+      }
+      if (token !== state.token) return;
+      if (list.length) break;
+    }
+    const f = pickFlight(list);
+    state.sched = f; state.schedAt = at; state.schedErr = "";
+    state.schedStatus = f ? "ok" : "notfound";
+    if (f) applySchedRoute();
+  } catch (e) {
+    if (token !== state.token) return;
+    state.schedErr = errText(e);
+    if (state.sched) { state.schedStatus = "ok"; toast(`No se han podido actualizar los horarios: ${state.schedErr}`, { err: true }); }
+    else state.schedStatus = "error";
+  } finally {
+    if (token === state.token) state.schedBusy = false;
+  }
+  if (token !== state.token) return;
+  renderPanel();
+  const done = state.sched && ["Arrived", "Canceled", "CanceledUncertain", "Diverted"].includes(state.sched.status);
+  if (state.sched && !done) {
+    const tick = () => { if (token !== state.token) return; if (document.hidden) state.schedTimer = setTimeout(tick, 60000); else lookupSchedule(); };
+    state.schedTimer = setTimeout(tick, ADB_REFRESH_MS);
+  }
+}
+
+function aptFromAdb(a) {
+  if (!a || !a.location) return null;
+  return {
+    iata_code: a.iata || null, icao_code: a.icao || null, name: a.name || a.shortName || "",
+    municipality: a.municipalityName || a.shortName || a.name || "", country_iso_name: a.countryCode || "",
+    country_name: (regionNames && a.countryCode && regionNames.of(a.countryCode)) || a.countryCode || "",
+    latitude: a.location.lat, longitude: a.location.lon,
+  };
+}
+// Si la ruta de adsbdb falta o no coincide con la del día, manda la de AeroDataBox
+function applySchedRoute() {
+  const sc = state.sched; if (!sc) return;
+  const o = aptFromAdb(sc.dep && sc.dep.airport), d = aptFromAdb(sc.arr && sc.arr.airport);
+  if (!o || !d) return;
+  const r = state.route;
+  const same = (x, y) => x && y && ((x.icao_code && x.icao_code === y.icao_code) || (x.iata_code && x.iata_code === y.iata_code));
+  if (r && r.origin && r.destination && same(r.origin, o) && same(r.destination, d)) return;
+  state.route = Object.assign({}, r || {}, {
+    origin: o, destination: d,
+    callsign_iata: (r && r.callsign_iata) || sc.number || null,
+    airline: (r && r.airline) || (sc.airline && sc.airline.name ? { name: sc.airline.name, iata: sc.airline.iata, icao: sc.airline.icao } : null),
+  });
+  drawRoute();
+  if (!state.ac) fitFlight();
+}
+
+const SCHED_STATUS = {
+  Unknown: ["Estado desconocido", "neutral"], Expected: ["Programado", "neutral"], CheckIn: ["Facturación abierta", "info"],
+  Boarding: ["Embarcando", "go"], GateClosed: ["Puerta cerrada", "warn"], Departed: ["Ha salido", "go"], Delayed: ["Retrasado", "warn"],
+  EnRoute: ["En vuelo", "go"], Approaching: ["Aproximándose", "go"], Arrived: ["Ha llegado", "neutral"], Canceled: ["Cancelado", "bad"],
+  CanceledUncertain: ["Posible cancelación", "bad"], Diverted: ["Desviado", "bad"],
+};
+const schedText = sc => (SCHED_STATUS[sc.status] || SCHED_STATUS.Unknown)[0];
+function schedBadge(sc) { const [txt, cls] = SCHED_STATUS[sc.status] || SCHED_STATUS.Unknown; return `<span class="sbadge ${cls}">${txt}</span>`; }
+
+function delayInfo(mvt) {
+  if (!mvt || !mvt.sched || !mvt.revised) return null;
+  const a = parseT(mvt.sched.utc), b = parseT(mvt.revised.utc);
+  if (a == null || b == null) return null;
+  const min = Math.round((b - a) / 60000);
+  const txt = n => n >= 60 ? fmtDur(n) : `${n} min`;
+  if (min >= 30) return { cls: "bad", txt: `+${txt(min)}` };
+  if (min >= 6) return { cls: "warn", txt: `+${txt(min)}` };
+  if (min <= -5) return { cls: "early", txt: `${txt(-min)} antes` };
+  return { cls: "ok", txt: "a tiempo" };
+}
+function timeCell(label, dt, baseDate, cls = "", extra = "") {
+  const p = dt && localParts(dt.local);
+  if (!p) return "";
+  const dd = baseDate ? dayDiff(p.date, baseDate) : 0;
+  return `<div class="tc"><div class="k">${label}</div><div class="t ${cls}">${p.time}${dd ? `<sup>${dd > 0 ? "+" : ""}${dd}</sup>` : ""}</div>${extra}</div>`;
+}
+function movementCard(kind, mvt, sc, baseDate) {
+  if (!mvt) return "";
+  const dep = kind === "dep";
+  const a = mvt.airport || {};
+  const done = dep ? (["Departed", "EnRoute", "Approaching", "Arrived", "Diverted"].includes(sc.status) || !!mvt.runway) : sc.status === "Arrived";
+  const dl = delayInfo(mvt);
+  const cells = [
+    timeCell("Programada", mvt.sched, baseDate),
+    mvt.revised ? timeCell(done ? "Real" : "Estimada", mvt.revised, baseDate, dl ? dl.cls : "", dl ? `<div class="dl ${dl.cls}">${dl.txt}</div>` : "")
+      : mvt.predicted ? timeCell("Prevista", mvt.predicted, baseDate, "muted") : "",
+    mvt.runway ? timeCell(dep ? "Despegue" : "Aterrizaje", mvt.runway, baseDate) : "",
+  ].join("");
+  const pills = [
+    mvt.terminal && ["Terminal", mvt.terminal],
+    mvt.gate && ["Puerta", mvt.gate],
+    dep && mvt.checkIn && ["Facturación", mvt.checkIn],
+    !dep && mvt.belt && ["Cinta", mvt.belt],
+  ].filter(Boolean).map(([k, v]) => `<span class="pill">${k} <b>${esc(v)}</b></span>`).join("");
+  return `
+  <div class="sc">
+    <div class="sc-head"><span class="sc-dir">${dep ? "Salida" : "Llegada"}</span><span class="sc-apt">${esc(a.iata || a.icao || "")}${a.municipalityName ? " · " + esc(a.municipalityName) : ""}</span><span class="sc-tz">hora local</span></div>
+    <div class="sc-times">${cells || '<div class="tc"><div class="k">Sin horario publicado</div></div>'}</div>
+    ${pills ? `<div class="sc-pills">${pills}</div>` : `<div class="sc-none">${dep ? "Terminal y puerta aún sin publicar" : "Terminal, puerta y cinta aún sin publicar"}</div>`}
+  </div>`;
+}
+function scheduleSection() {
+  const st = state.schedStatus;
+  if (!st) return "";
+  if (st === "nokey") return `
+    <div class="section"><div class="cta">
+      <div><b>Horarios, puertas y retrasos</b><p>Activa los datos gratuitos de AeroDataBox para ver horas programadas y reales, terminal, puerta, facturación y cinta de equipaje.</p></div>
+      <button class="btn small" id="btnAdbSetup">Activar</button>
+    </div></div>`;
+  if (st === "idle") return `
+    <div class="section"><div class="cta">
+      <div><b>Horarios, puertas y retrasos</b><p>Consulta horas programadas y reales, puerta y estado de este vuelo. Gasta 1 de tus ~${ADB_MONTHLY_UNITS / 2} consultas del mes.</p></div>
+      <button class="btn small" id="btnSchedLoad">Ver</button>
+    </div></div>`;
+  if (st === "loading") return `<div class="section"><div class="section-title">Horarios</div><div class="sc loading"><div class="spinner"></div>Cargando horarios, puertas y estado…</div></div>`;
+  if (st === "notfound") return `<div class="section"><div class="section-title">Horarios</div><div class="sc-empty">AeroDataBox no tiene horarios para este vuelo.</div></div>`;
+  if (st === "error") return `<div class="section"><div class="section-title sched-title"><span>Horarios</span><button class="mini-btn" id="btnSchedRefresh" title="Reintentar">${ICONS.refresh}</button></div><div class="sc-empty">No se han podido cargar los horarios: ${esc(state.schedErr)}.</div></div>`;
+  const sc = state.sched; if (!sc) return "";
+  const base = sc.dep && sc.dep.sched && localParts(sc.dep.sched.local);
+  const baseDate = base ? base.date : null;
+  const t0 = sc.dep && sc.dep.sched && parseT(sc.dep.sched.utc), t1 = sc.arr && sc.arr.sched && parseT(sc.arr.sched.utc);
+  const dur = t0 && t1 ? (t1 - t0) / 60000 : null;
+  const upd = state.schedAt ? Math.round((Date.now() - state.schedAt) / 60000) : null;
+  const used = Math.round(adbUsage().units / 2);
+  return `
+  <div class="section">
+    <div class="section-title sched-title"><span>Horarios${baseDate ? ` · ${dayLabel(baseDate)}` : ""}</span>${schedBadge(sc)}<button class="mini-btn ${state.schedBusy ? "spin" : ""}" id="btnSchedRefresh" title="Actualizar horarios">${ICONS.refresh}</button></div>
+    ${movementCard("dep", sc.dep, sc, baseDate)}
+    ${movementCard("arr", sc.arr, sc, baseDate)}
+    <div class="sched-foot">${dur > 0 ? `Duración programada ${fmtDur(dur)} · ` : ""}AeroDataBox${upd == null ? "" : upd < 1 ? " · actualizado ahora" : ` · actualizado hace ${upd} min`} · ${used} de ~${ADB_MONTHLY_UNITS / 2} consultas este mes</div>
+  </div>`;
 }
 
 /* ===================== Panel ===================== */
@@ -755,6 +1197,7 @@ const ICONS = {
   hdg: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m16 8-2 6-6 2 2-6z"/></svg>',
   sq: '<svg viewBox="0 0 24 24"><path d="M5 12.5a7 7 0 0 1 14 0"/><path d="M8.5 12.5a3.5 3.5 0 0 1 7 0"/><circle cx="12" cy="16" r="1.5"/></svg>',
   pos: '<svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>',
+  refresh: '<svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 4v5h-5"/></svg>',
 };
 
 function statusBadge(ac) {
@@ -772,12 +1215,13 @@ function statusBadge(ac) {
 
 function renderPanel() {
   if (!state.query) return;
-  const ac = state.ac, r = state.route, a = state.aircraft;
-  const al = r && r.airline;
-  const iataNum = r && r.callsign_iata ? r.callsign_iata : null;
+  const ac = state.ac, r = state.route, a = state.aircraft, sc = state.sched;
+  const al = (r && r.airline) || (sc && sc.airline && sc.airline.name ? { name: sc.airline.name, iata: sc.airline.iata, icao: sc.airline.icao } : null);
+  const iataNum = (r && r.callsign_iata) || (sc && sc.number) || null;
   const title = iataNum || state.callsign || state.query;
-  const airlineIata = (al && al.iata) || (iataNum && iataNum.slice(0, 2));
+  const airlineIata = (al && al.iata) || (iataNum && /^[A-Z0-9]{2}\d/.test(iataNum) ? iataNum.slice(0, 2) : null);
   const isFav = state.favs.includes(state.query);
+  const badge = ac && !(ac.alt_baro === "ground" && sc) ? statusBadge(ac) : sc ? schedBadge(sc) : statusBadge(ac);
 
   const logo = airlineIata
     ? `<div class="airline-logo"><img src="https://pics.avs.io/200/80/${esc(airlineIata)}.png" alt="" onerror="this.parentNode.classList.add('fallback');this.parentNode.textContent='${esc(airlineIata)}'"></div>`
@@ -787,7 +1231,7 @@ function renderPanel() {
   <div class="flight-head">
     ${logo}
     <div class="fh-main">
-      <div style="margin-bottom:7px">${statusBadge(ac)}</div>
+      <div style="margin-bottom:7px">${badge}</div>
       <div class="fh-number">${esc(title)}</div>
       <div class="fh-airline">${esc(al ? al.name : (a && a.registered_owner) || "Aerolínea desconocida")}${state.callsign && state.callsign !== title ? ` · <span class="mono">${esc(state.callsign)}</span>` : ""}</div>
     </div>
@@ -799,13 +1243,18 @@ function renderPanel() {
   // Ruta y progreso
   const ap = airports();
   if (ap) {
-    let prog = null, flownKm = null, leftKm = null, etaMin = null;
+    let prog = null, flownKm = null, leftKm = null, etaMin = null, etaSrc = "";
     if (ac) {
       const cur = [ac.lat, ac.lon];
       flownKm = haversine(ap.op, cur); leftKm = haversine(cur, ap.dp);
       prog = flownKm / (flownKm + leftKm);
       if (ac.alt_baro === "ground") prog = leftKm < 15 ? 1 : flownKm < 15 ? 0 : prog;
-      if (ac.gs > 60 && ac.alt_baro !== "ground") etaMin = (leftKm / ((leftKm > 150 ? Math.max(ac.gs, 430) : ac.gs) * 1.852)) * 60 + Math.min(12, leftKm / 25);
+      if (ac.gs > 60 && ac.alt_baro !== "ground") {
+        etaMin = (leftKm / ((leftKm > 150 ? Math.max(ac.gs, 430) : ac.gs) * 1.852)) * 60 + Math.min(12, leftKm / 25);
+        etaSrc = "calculada con la velocidad actual";
+        const sEta = sc && sc.status !== "Arrived" && sc.arr && sc.arr.revised ? parseT(sc.arr.revised.utc) : null;
+        if (sEta && sEta > Date.now() - 10 * 60000) { etaMin = Math.max(0, (sEta - Date.now()) / 60000); etaSrc = "según la aerolínea y el aeropuerto"; }
+      }
     }
     const pct = prog == null ? 0 : Math.round(prog * 1000) / 10;
     const eta = etaMin != null ? new Date(Date.now() + etaMin * 60000) : null;
@@ -827,10 +1276,12 @@ function renderPanel() {
       ${ac ? `
       <div class="progress"><div class="bar" style="width:${pct}%"></div><div class="pl" style="left:${pct}%"><svg viewBox="0 0 24 24"><path d="${PLANE_PATH}"/></svg></div></div>
       <div class="progress-meta"><span><b>${fmtDist(flownKm)}</b> recorridos</span><span><b>${fmtDist(leftKm)}</b> restantes</span></div>
-      ${eta ? `<div class="eta"><div><div class="l">Llegada estimada</div><div class="v">${eta.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" })} <span style="font-size:12px;color:var(--muted);font-weight:500">tu hora</span></div></div><div class="r">Faltan<b>${fmtDur(etaMin)}</b></div></div>` : ""}
-      ` : `<div class="eta"><div><div class="l">Estado</div><div class="v" style="font-size:14px">No está transmitiendo ahora mismo</div></div><div class="r">Distancia<b>${fmtDist(haversine(ap.op, ap.dp))}</b></div></div>`}
+      ${eta ? `<div class="eta"><div><div class="l">Llegada estimada</div><div class="v">${eta.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" })} <span style="font-size:12px;color:var(--muted);font-weight:500">tu hora</span></div><div class="eta-src">${etaSrc}</div></div><div class="r">Faltan<b>${fmtDur(etaMin)}</b></div></div>` : ""}
+      ` : `<div class="eta"><div><div class="l">Estado</div><div class="v" style="font-size:14px">${sc ? esc(schedText(sc)) : "No está transmitiendo ahora mismo"}</div></div><div class="r">Distancia<b>${fmtDist(haversine(ap.op, ap.dp))}</b></div></div>`}
     </div>`;
   }
+
+  html += scheduleSection();
 
   // Datos en vivo
   if (ac) {
@@ -851,28 +1302,36 @@ function renderPanel() {
         <div class="stat"><div class="k">${ICONS.vs}Vel. vertical</div><div class="v ${vs > 300 ? "up" : vs < -300 ? "down" : ""}">${vs > 0 ? "+" : ""}${vsV}<small>${vsU}</small></div><div class="s">${vs == null ? "&nbsp;" : vs > 300 ? "Subiendo" : vs < -300 ? "Bajando" : "Nivelado"}</div></div>
         <div class="stat"><div class="k">${ICONS.hdg}Rumbo</div><div class="v">${hdg != null ? Math.round(hdg) + "°" : "–"}<small>${compass(hdg)}</small></div><div class="s">&nbsp;</div></div>
         <div class="stat"><div class="k">${ICONS.sq}Squawk</div><div class="v mono" ${emerg ? 'style="color:var(--danger)"' : ""}>${esc(ac.squawk || "–")}</div><div class="s">${emerg ? "Código de emergencia" : "Transpondedor"}</div></div>
-        <div class="stat"><div class="k">${ICONS.pos}Última señal</div><div class="v" style="font-size:16px">${ago(age)}</div><div class="s">${ac.type === "mlat" ? "MLAT" : "ADS-B"}${ac.rssi != null ? ` · ${nf1.format(ac.rssi)} dBFS` : ""}</div></div>
+        <div class="stat"><div class="k">${ICONS.pos}Última señal</div><div class="v" style="font-size:16px">${ago(age)}</div><div class="s">${ac.type === "mlat" ? "MLAT" : ac.type === "opensky" ? "OpenSky" : "ADS-B"}${ac.rssi != null ? ` · ${nf1.format(ac.rssi)} dBFS` : ""}</div></div>
         <div class="stat wide"><div class="k">${ICONS.pos}Posición</div><div class="v mono" style="font-size:14px">${ac.lat.toFixed(4)}°, ${ac.lon.toFixed(4)}°</div></div>
       </div>
     </div>`;
   }
 
   // Avión
-  const reg = (a && a.registration) || (ac && ac.r);
-  const type = a ? [a.manufacturer, a.type].filter(Boolean).join(" ") : (ac && ac.desc) || null;
-  if (reg || type || a) {
-    const photo = a && (a.url_photo || a.url_photo_thumbnail);
+  const sa = sc && sc.aircraft;
+  const reg = (a && a.registration) || (ac && ac.r) || (sa && sa.reg);
+  const dbType = a ? [a.manufacturer, a.type].filter(Boolean).join(" ") : "";
+  const model = (sa && sa.model) || dbType || (ac && ac.desc) || null;
+  const variant = sa && sa.model && dbType && dbType.toLowerCase() !== sa.model.toLowerCase() ? dbType : null;
+  const dbPhoto = a && safeUrl(a.url_photo || a.url_photo_thumbnail);
+  const photo = dbPhoto || (sa && sa.image && sa.image.url) || null;
+  const credit = !dbPhoto && sa && sa.image ? sa.image : null;
+  const hex = state.hex || (sa && sa.modeS);
+  if (reg || model || a || sa) {
     html += `
     <div class="section">
       <div class="section-title">Avión</div>
-      <div class="aircraft-photo">${photo ? `<img src="${esc(photo)}" alt="Foto del avión" onerror="this.remove()">` : ""}<div class="ph" style="${photo ? "z-index:-1" : ""}"><svg viewBox="0 0 24 24"><path d="${PLANE_PATH}"/></svg></div></div>
+      <div class="aircraft-photo">${photo ? `<img src="${esc(photo)}" alt="Foto del avión" referrerpolicy="no-referrer" onerror="this.remove()">` : ""}<div class="ph" style="${photo ? "z-index:-1" : ""}"><svg viewBox="0 0 24 24"><path d="${PLANE_PATH}"/></svg></div></div>
+      ${credit && credit.author ? `<div class="photo-credit">Foto: ${credit.webUrl ? `<a href="${esc(credit.webUrl)}" target="_blank" rel="noopener">${esc(credit.author)}</a>` : esc(credit.author)}</div>` : ""}
       <div class="kv">
-        ${type ? `<div class="k">Modelo</div><div class="v">${esc(type)}</div>` : ""}
+        ${model ? `<div class="k">Modelo</div><div class="v">${esc(model)}</div>` : ""}
+        ${variant ? `<div class="k">Variante</div><div class="v">${esc(variant)}</div>` : ""}
         ${(a && a.icao_type) || (ac && ac.t) ? `<div class="k">Código de tipo</div><div class="v mono">${esc((a && a.icao_type) || ac.t)}</div>` : ""}
         ${reg ? `<div class="k">Matrícula</div><div class="v mono">${esc(reg)}</div>` : ""}
         ${a && a.registered_owner ? `<div class="k">Operador</div><div class="v">${esc(a.registered_owner)}</div>` : ""}
         ${a && a.registered_owner_country_name ? `<div class="k">País de registro</div><div class="v">${flagEmoji(a.registered_owner_country_iso_name)} ${esc(a.registered_owner_country_name)}</div>` : ""}
-        ${state.hex ? `<div class="k">Código Mode S</div><div class="v mono">${esc(state.hex.toUpperCase())}</div>` : ""}
+        ${hex ? `<div class="k">Código Mode S</div><div class="v mono">${esc(String(hex).toUpperCase())}</div>` : ""}
       </div>
     </div>`;
   }
@@ -890,7 +1349,7 @@ function renderPanel() {
     </div>`;
   }
 
-  html += `<div class="panel-foot">Posiciones ADS-B de la red comunitaria (airplanes.live, adsb.lol, adsb.fi). Ruta y avión de adsbdb.com. Se actualiza cada ${TRACK_INTERVAL / 1000} s. La hora de llegada es una estimación a partir de la distancia restante y la velocidad actual.</div>`;
+  html += `<div class="panel-foot">Posiciones: adsb.lol, adsb.fi y OpenSky Network, cada ${TRACK_INTERVAL / 1000} s. Ruta y avión: adsbdb.com. Horarios, puertas y estado: AeroDataBox.</div>`;
 
   const scroll = $("#panelScroll").scrollTop;
   $("#panelBody").innerHTML = html;
@@ -901,45 +1360,338 @@ function renderPanel() {
     try { await navigator.clipboard.writeText(location.href); toast("Enlace copiado al portapapeles"); }
     catch { toast(location.href); }
   };
+  const on = (id, fn) => { const el = document.getElementById(id); if (el) el.onclick = fn; };
+  on("btnAdbSetup", () => openSetup("adb"));
+  on("btnSchedLoad", () => lookupSchedule());
+  on("btnSchedRefresh", () => lookupSchedule({ force: true }));
 }
 // Refresca "última señal" sin esperar al siguiente sondeo
 setInterval(() => { if (state.ac && !document.hidden) renderPanel(); }, 1000);
 
-/* ===================== Tráfico cercano ===================== */
+/* ===================== Tráfico: todos los aviones (mapa en canvas) ===================== */
+// Con el zoom alejado se usa la foto mundial de OpenSky (servidor v4); con el zoom cercano, datos
+// detallados de adsb.lol/adsb.fi de la zona visible. Los aviones se dibujan en un canvas (miles sin
+// ralentizar el iPad) y se reparten en una rejilla según el zoom: cuanto más te acercas, más aviones
+// aparecen. Entre actualizaciones se desplazan según su velocidad y rumbo.
+const REGIONAL_ZOOM = 7;
+const WORLD_INTERVAL = 30000;
+const REGION_INTERVAL = 12000;
+const traffic = { world: new Map(), region: new Map(), worldAt: 0, worldRetryAt: 0, regionAt: 0, worldErr: "", regionErr: "",
+  worldAuth: null, regionSeq: 0, drawn: [], version: 0, hover: null, total: 0 };
+const serverMeta = {};
+map.attributionControl.addAttribution('Tráfico: <a href="https://opensky-network.org" target="_blank" rel="noopener">OpenSky Network</a>, <a href="https://adsb.lol" target="_blank" rel="noopener">adsb.lol</a> (ODbL), adsb.fi');
+
+async function serverVersion(base, force = false) {
+  let m = serverMeta[base];
+  if (force || !m || Date.now() - m.at > 10 * 60000) {
+    try { const d = await callServer(base, "", 15000); m = { version: +d.version || 0, at: Date.now(), ok: true }; }
+    catch (e) { m = { version: 0, at: Date.now() - 9 * 60000, ok: false, err: errText(e) }; }
+    serverMeta[base] = m;
+  }
+  return m;
+}
+async function v4Server() {
+  for (const base of servers()) {
+    if (!isGoogle(base)) continue;
+    if ((await serverVersion(base)).version >= 4) return base;
+  }
+  return null;
+}
+
+const normLon = lon => ((((lon + 180) % 360) + 360) % 360) - 180;
+function rowsToMap(rows, kind, tResp) {
+  const m = new Map();
+  for (const r of rows || []) {
+    if (!r || r[2] == null || r[3] == null) continue;
+    const t = kind === "world" ? r[8] * 1000 : (tResp - (r[8] || 0)) * 1000;
+    m.set(r[0], { hex: r[0], cs: r[1] || "", lat: r[2], lon: r[3], alt: r[4], gs: r[5], trk: r[6], vr: r[7], t, sq: r[9] || "", type: r[10] || "", reg: r[11] || "", src: kind });
+  }
+  return m;
+}
+function acListToMap(list, nowMs) {
+  const m = new Map();
+  for (const a of list || []) {
+    if (a.lat == null || a.lon == null) continue;
+    m.set(a.hex, { hex: a.hex, cs: (a.flight || "").trim(), lat: a.lat, lon: a.lon,
+      alt: a.alt_baro === "ground" ? -1 : typeof a.alt_baro === "number" ? a.alt_baro : (a.alt_geom ?? null),
+      gs: a.gs ?? null, trk: a.track ?? a.true_heading ?? null, vr: a.baro_rate ?? a.geom_rate ?? null,
+      t: nowMs - (a.seen_pos ?? a.seen ?? 0) * 1000, sq: a.squawk || "", type: a.t || "", reg: a.r || "", src: "adsb" });
+  }
+  return m;
+}
+function itemToAc(a) {
+  const [lat, lon] = predict(a, Date.now());
+  return { hex: a.hex, flight: a.cs, r: a.reg || undefined, t: a.type || undefined, lat, lon, alt_baro: a.alt === -1 ? "ground" : a.alt,
+    gs: a.gs, track: a.trk, baro_rate: a.vr, squawk: a.sq, seen_pos: 0, type: a.src === "world" ? "opensky" : "adsb_icao" };
+}
+// Posición estimada ahora mismo a partir de la última conocida, la velocidad y el rumbo
+function predict(a, now) {
+  if (a.alt === -1 || !a.gs || a.trk == null) return [a.lat, a.lon];
+  const dt = Math.min(120, Math.max(0, (now - a.t) / 1000));
+  const d = (a.gs * 1.852 * dt / 3600) / R_KM, br = toRad(a.trk);
+  return [a.lat + toDeg(d * Math.cos(br)), a.lon + toDeg(d * Math.sin(br) / Math.max(0.2, Math.cos(toRad(a.lat))))];
+}
+
+// Círculos (máx. 250 NM) que cubren la parte visible del mapa
+function coverCircles(maxN) {
+  const b = map.getBounds();
+  const n = Math.min(85, b.getNorth()), s = Math.max(-85, b.getSouth()), w = b.getWest(), e = b.getEast();
+  const hKm = (n - s) * 111.2, wKm = Math.max(1, (e - w) * 111.2 * Math.cos(toRad((n + s) / 2)));
+  let rows = Math.max(1, Math.ceil(hKm / 640)), cols = Math.max(1, Math.ceil(wKm / 640));
+  while (rows * cols > maxN) { if (cols >= rows && cols > 1) cols--; else rows--; }
+  const r = Math.min(250, Math.ceil(Math.hypot(hKm / rows, wKm / cols) / 2 / 1.852) + 5);
+  const out = [];
+  for (let i = 0; i < rows; i++) for (let j = 0; j < cols; j++)
+    out.push([(s + (i + 0.5) * (n - s) / rows).toFixed(3), normLon(w + (j + 0.5) * (e - w) / cols).toFixed(3), r]);
+  return out;
+}
+
+async function updateWorld() {
+  const base = await v4Server();
+  if (!base) { traffic.worldErr = !userServer ? "noserver" : isGoogle(userServer) ? "update" : "noserver"; return false; }
+  try {
+    const d = await callServer(base, "world", 30000);
+    traffic.world = rowsToMap(d.a, "world");
+    traffic.worldAt = Date.now(); traffic.worldErr = ""; traffic.worldAuth = d.auth;
+    traffic.version++;
+    return true;
+  } catch (e) {
+    traffic.worldErr = errText(e); traffic.worldRetryAt = Date.now() + 90000;
+    return false;
+  }
+}
+async function updateRegion() {
+  const seq = ++traffic.regionSeq;
+  const base = await v4Server();
+  try {
+    let m;
+    if (base) {
+      const circles = coverCircles(6);
+      const d = await callServer(base, "multi/" + circles.map(c => c.join(",")).join(";"), 30000);
+      m = rowsToMap(d.a, "adsb", d.t || Date.now() / 1000);
+    } else {
+      // Servidor antiguo: una consulta por zona (máximo 3)
+      const lists = await Promise.all(coverCircles(3).map(c => adsb("point", c[0], c[1], c[2]).catch(() => null)));
+      if (lists.every(l => l == null)) throw new Error("sin respuesta");
+      m = new Map();
+      for (const l of lists) for (const [k, v] of acListToMap(l, Date.now())) m.set(k, v);
+    }
+    if (seq !== traffic.regionSeq) return true;
+    traffic.region = m; traffic.regionAt = Date.now(); traffic.regionErr = ""; traffic.version++;
+    return true;
+  } catch (e) {
+    if (seq === traffic.regionSeq) traffic.regionErr = errText(e);
+    return false;
+  }
+}
+
 let trafficSoon;
 function scheduleTraffic(ms = 0) {
   clearTimeout(trafficSoon); clearTimeout(state.trafficTimer);
-  if (!state.traffic) return;
+  if (!state.traffic) { requestDraw(); return; }
   trafficSoon = setTimeout(loadTraffic, ms);
 }
 async function loadTraffic() {
+  clearTimeout(state.trafficTimer);
   if (!state.traffic) return;
-  if (document.hidden || map.getZoom() < 4) { trafficLayer.clearLayers(); state.trafficTimer = setTimeout(loadTraffic, TRAFFIC_INTERVAL); return; }
-  const c = map.getCenter(), b = map.getBounds();
-  const nm = Math.min(250, Math.ceil(haversine([c.lat, c.lng], [b.getNorth(), b.getEast()]) / 1.852));
-  try {
-    const list = await adsb("point", c.lat.toFixed(3), c.lng.toFixed(3), nm);
-    if (!state.traffic) return;
-    trafficLayer.clearLayers();
-    for (const ac of list) {
-      if (ac.lat == null || ac.hex === state.hex || ac.alt_baro === "ground") continue;
-      const cs = (ac.flight || "").trim();
-      const m = L.marker([ac.lat, ac.lon], { icon: planeIcon("plane-traffic", map.getZoom() < 6 ? 15 : 22, ac.track ?? 0), keyboard: false });
-      const [av, au] = fmtAlt(typeof ac.alt_baro === "number" ? ac.alt_baro : null);
-      m.bindTooltip(`${esc(cs || ac.r || ac.hex.toUpperCase())}<small>${esc(ac.t || "")}${ac.t ? " · " : ""}${av} ${au}</small>`, { className: "tt", direction: "top", offset: [0, -10] });
-      m.on("click", () => trackFromTraffic(ac));
-      m.addTo(trafficLayer);
-    }
-    setStatus(true);
-  } catch { setStatus(false); }
-  state.trafficTimer = setTimeout(loadTraffic, TRAFFIC_INTERVAL);
+  if (document.hidden) { state.trafficTimer = setTimeout(loadTraffic, 5000); return; }
+  const regional = map.getZoom() >= REGIONAL_ZOOM, now = Date.now();
+  const jobs = [];
+  if (!regional && now - traffic.worldAt > WORLD_INTERVAL - 2000 && now > traffic.worldRetryAt) jobs.push(updateWorld());
+  if (regional) jobs.push(updateRegion());
+  let ok = (await Promise.all(jobs)).every(Boolean);
+  // Sin vista mundial (servidor antiguo u OpenSky sin cupo): al menos la zona que estás mirando
+  if (!regional && traffic.worldErr && Date.now() - traffic.regionAt > REGION_INTERVAL) ok = (await updateRegion()) && ok;
+  if (!state.traffic) return;
+  setStatus(ok || !!traffic.drawn.length);
+  requestDraw();
+  state.trafficTimer = setTimeout(loadTraffic, regional ? REGION_INTERVAL : 10000);
 }
+
+// Lista combinada y ordenada por prioridad (estable entre actualizaciones para que no parpadee)
+let mergedCache = [], mergedVersion = -1;
+const hash01 = hex => (parseInt(String(hex).slice(-5), 16) % 997) / 997 || 0;
+function mergedItems() {
+  if (mergedVersion === traffic.version) return mergedCache;
+  const m = new Map();
+  if (Date.now() - traffic.worldAt < 3 * 60000) for (const [k, v] of traffic.world) m.set(k, v);
+  if (Date.now() - traffic.regionAt < 3 * 60000) for (const [k, v] of traffic.region) m.set(k, v);
+  const arr = [...m.values()];
+  for (const a of arr) a.pr = (a.alt === -1 ? 2 : 0) + (a.cs ? 0 : 1) + hash01(a.hex);
+  arr.sort((x, y) => x.pr - y.pr);
+  mergedCache = arr; mergedVersion = traffic.version; traffic.total = arr.length;
+  return arr;
+}
+
+const PLANE_P2D = new Path2D(PLANE_PATH);
+const spriteCache = {};
+function sprite(color, px, dpr) {
+  const key = `${color}|${px}|${dpr}`;
+  if (spriteCache[key]) return spriteCache[key];
+  const size = Math.ceil(px * dpr) + 4, c = document.createElement("canvas");
+  c.width = c.height = size;
+  const g = c.getContext("2d"), k = (px * dpr) / 24;
+  g.translate(size / 2, size / 2); g.scale(k, k); g.translate(-12, -12);
+  g.lineJoin = "round"; g.lineWidth = 2.4; g.strokeStyle = "rgba(6,10,22,.9)"; g.stroke(PLANE_P2D);
+  g.fillStyle = color; g.fill(PLANE_P2D);
+  return (spriteCache[key] = { c, size: size / dpr });
+}
+const ALT_COLORS = { ground: "#8b93ab", low: "#4fe3c1", mid: "#7cc4ff", high: "#cbb8ff", none: "#b9c4e6" };
+function altColor(a) {
+  if (a.alt === -1) return ALT_COLORS.ground;
+  if (a.alt == null) return ALT_COLORS.none;
+  return a.alt < 10000 ? ALT_COLORS.low : a.alt < 25000 ? ALT_COLORS.mid : ALT_COLORS.high;
+}
+
+let trafficEl = null;
+const TrafficCanvas = L.Layer.extend({
+  onAdd(m) {
+    this._canvas = trafficEl = L.DomUtil.create("canvas", "traffic-canvas leaflet-zoom-hide");
+    m.getPanes().overlayPane.appendChild(this._canvas);
+    m.on("move", this._onMove, this);
+    m.on("moveend zoomend viewreset resize", this._reset, this);
+    setTimeout(() => this._reset(), 0); // tras terminar de cargar el resto del código
+  },
+  onRemove(m) {
+    L.DomUtil.remove(this._canvas);
+    m.off("move", this._onMove, this);
+    m.off("moveend zoomend viewreset resize", this._reset, this);
+  },
+  _onMove() { const t = performance.now(); if (t - (this._last || 0) > 70) { this._last = t; this._reset(); } },
+  _reset() {
+    const m = this._map, c = this._canvas; if (!m || !c) return;
+    const size = m.getSize(), dpr = Math.min(3, window.devicePixelRatio || 1);
+    L.DomUtil.setPosition(c, m.containerPointToLayerPoint([0, 0]));
+    if (c.width !== Math.round(size.x * dpr) || c.height !== Math.round(size.y * dpr)) {
+      c.width = Math.round(size.x * dpr); c.height = Math.round(size.y * dpr);
+      c.style.width = size.x + "px"; c.style.height = size.y + "px";
+    }
+    drawTraffic();
+  },
+});
+new TrafficCanvas().addTo(map);
+
+function drawTraffic() {
+  const c = trafficEl; if (!c || !c.width) return;
+  const g = c.getContext("2d"), dpr = c.width / Math.max(1, map.getSize().x);
+  g.setTransform(1, 0, 0, 1, 0, 0);
+  g.clearRect(0, 0, c.width, c.height);
+  const drawn = [];
+  traffic.drawn = drawn;
+  if (!state.traffic) { updateHud(); return; }
+  const items = mergedItems();
+  const z = map.getZoom(), size = map.getSize(), center = map.getCenter();
+  const b = map.getBounds().pad(0.04);
+  const n = b.getNorth(), s = b.getSouth(), w = b.getWest(), e = b.getEast();
+  // Rejilla de reparto: con el zoom alejado se ve un avión por celda; al acercarte, todos
+  const cell = z >= 10 ? 0 : z >= 8 ? 13 : z >= 4 ? 15 : 13;
+  const px = z < 3 ? 10 : z < 5 ? 12 : z < 7 ? 14 : z < 9 ? 17 : z < 11 ? 20 : 22;
+  const showGround = z >= 11, now = Date.now(), occ = new Set();
+  for (const a of items) {
+    if (a.hex === state.hex) continue;
+    if (a.alt === -1 && !showGround) continue;
+    if (now - a.t > 6 * 60000) continue;
+    const pos = predict(a, now);
+    if (pos[0] < s || pos[0] > n) continue;
+    const lon = pos[1] + 360 * Math.round((center.lng - pos[1]) / 360);
+    if (lon < w || lon > e) continue;
+    const p = map.latLngToContainerPoint([pos[0], lon]);
+    if (p.x < -20 || p.y < -20 || p.x > size.x + 20 || p.y > size.y + 20) continue;
+    if (cell) { const k = ((p.x / cell) | 0) * 8192 + ((p.y / cell) | 0); if (occ.has(k)) continue; occ.add(k); }
+    const sp = sprite(altColor(a), px, dpr);
+    const r = toRad(a.trk || 0), cos = Math.cos(r), sin = Math.sin(r);
+    g.setTransform(cos * dpr, sin * dpr, -sin * dpr, cos * dpr, p.x * dpr, p.y * dpr);
+    g.drawImage(sp.c, -sp.size / 2, -sp.size / 2, sp.size, sp.size);
+    drawn.push({ x: p.x, y: p.y, a });
+  }
+  g.setTransform(dpr, 0, 0, dpr, 0, 0);
+  // Indicativos junto a cada avión cuando hay sitio
+  if (z >= 9 && drawn.length <= 350) {
+    g.font = "600 10px Inter, system-ui, sans-serif"; g.textBaseline = "middle"; g.lineJoin = "round";
+    const used = new Set();
+    for (const d of drawn) {
+      if (d.a.alt === -1 && z < 13) continue;
+      const label = d.a.cs || d.a.reg; if (!label) continue;
+      const lx = d.x + px * 0.65, ly = d.y + px * 0.55, k = ((lx / 72) | 0) * 8192 + ((ly / 14) | 0);
+      if (used.has(k)) continue; // sin etiquetas montadas unas sobre otras
+      used.add(k);
+      g.lineWidth = 3; g.strokeStyle = "rgba(6,10,22,.85)"; g.strokeText(label, lx, ly);
+      g.fillStyle = "#dfe6ff"; g.fillText(label, lx, ly);
+    }
+  }
+  const h = traffic.hover && drawn.find(d => d.a === traffic.hover);
+  if (h) { g.beginPath(); g.arc(h.x, h.y, px * 0.85, 0, Math.PI * 2); g.lineWidth = 2; g.strokeStyle = "rgba(255,209,102,.9)"; g.stroke(); }
+  g.setTransform(1, 0, 0, 1, 0, 0);
+  updateHud();
+}
+
+let drawPending = false, animTimer = null;
+function requestDraw() {
+  if (drawPending) return;
+  drawPending = true;
+  requestAnimationFrame(() => { drawPending = false; drawTraffic(); });
+}
+// Refresco de la animación: más fluido cuantos menos aviones hay en pantalla
+function animate() {
+  clearTimeout(animTimer);
+  if (state.traffic && !document.hidden) requestDraw();
+  const k = traffic.drawn.length;
+  animTimer = setTimeout(animate, k > 2500 ? 1000 : k > 900 ? 400 : k > 250 ? 150 : 80);
+}
+
+let hudHtml = "";
+function updateHud() {
+  const el = $("#hud");
+  if (!state.traffic) { el.classList.remove("show"); return; }
+  const regional = map.getZoom() >= REGIONAL_ZOOM;
+  const shown = traffic.drawn.length, worldOk = Date.now() - traffic.worldAt < 3 * 60000;
+  let txt = `<b>${nf0.format(shown)}</b> aviones en pantalla`;
+  if (!regional && worldOk) txt += ` · <b>${nf0.format(traffic.world.size)}</b> en el mundo`;
+  let hint = "";
+  if (!regional) {
+    if (traffic.worldErr === "update") hint = "Actualiza tu servidor en Ajustes para ver todo el mundo";
+    else if (traffic.worldErr === "noserver") hint = "Configura tu servidor en Ajustes para ver el tráfico mundial";
+    else if (traffic.worldErr) hint = `Vista mundial no disponible (${traffic.worldErr}). Acércate para ver la zona`;
+    else if (!traffic.worldAt) hint = "Cargando el tráfico mundial…";
+  } else if (traffic.regionErr && !shown) hint = `Sin datos de la zona (${traffic.regionErr})`;
+  const html = `<span class="hud-dot"></span><span>${txt}</span>${hint ? `<span class="hud-hint" id="hudHint">${esc(hint)}</span>` : ""}<span class="hud-legend">Altitud<i style="background:${ALT_COLORS.low}"></i>baja<i style="background:${ALT_COLORS.mid}"></i>media<i style="background:${ALT_COLORS.high}"></i>alta</span>`;
+  if (html !== hudHtml) {
+    el.innerHTML = hudHtml = html;
+    const hh = $("#hudHint"); if (hh) hh.onclick = () => openSetup(traffic.worldErr && traffic.worldErr !== "update" && traffic.worldErr !== "noserver" ? "world" : "server");
+  }
+  el.classList.add("show");
+}
+
+// Tocar o pasar el ratón sobre un avión
+const coarsePointer = window.matchMedia && matchMedia("(pointer: coarse)").matches;
+function trafficAt(pt, radius) {
+  let best = null, bd = radius * radius;
+  for (const d of traffic.drawn) { const dx = d.x - pt.x, dy = d.y - pt.y, dd = dx * dx + dy * dy; if (dd < bd) { bd = dd; best = d.a; } }
+  return best;
+}
+function hideTip() { $("#ttip").style.display = "none"; $("#map").classList.remove("over-plane"); if (traffic.hover) { traffic.hover = null; requestDraw(); } }
+map.on("click", e => {
+  const a = trafficAt(e.containerPoint, coarsePointer ? 24 : 14);
+  if (a) { hideTip(); trackFromTraffic(itemToAc(a)); }
+});
+map.on("mousemove", e => {
+  if (coarsePointer) return;
+  const a = trafficAt(e.containerPoint, 12);
+  if (!a) { hideTip(); return; }
+  const tip = $("#ttip"), [av, au] = fmtAlt(a.alt === -1 ? null : a.alt), [sv, su] = fmtSpd(a.gs);
+  tip.innerHTML = `${esc(a.cs || a.reg || a.hex.toUpperCase())}<small>${[a.type, a.alt === -1 ? "en tierra" : `${av} ${au}`, a.gs ? `${sv} ${su}` : ""].filter(Boolean).map(esc).join(" · ")}</small>`;
+  tip.style.left = e.containerPoint.x + "px"; tip.style.top = e.containerPoint.y + "px"; tip.style.display = "block";
+  $("#map").classList.add("over-plane");
+  if (traffic.hover !== a) { traffic.hover = a; requestDraw(); }
+});
+map.on("mouseout movestart zoomstart", hideTip);
+
 async function trackFromTraffic(ac) {
   const q = (ac.flight || "").trim() || ac.r || ac.hex.toUpperCase();
   $("#q").value = q;
   ++state.token; stopTracking();
   addRecent(q);
-  await startTracking(ac, q, null);
+  await startTracking(ac, q, null, { schedule: false });
 }
 function setStatus(ok) {
   $("#statusText").textContent = ok ? "En directo" : "Reconectando…";
@@ -953,7 +1705,7 @@ function syncControls() {
 }
 $("#btnTraffic").onclick = () => {
   state.traffic = !state.traffic; store.set("traffic", state.traffic); syncControls();
-  if (state.traffic) scheduleTraffic(0); else { clearTimeout(state.trafficTimer); trafficLayer.clearLayers(); }
+  if (state.traffic) { scheduleTraffic(0); animate(); } else { clearTimeout(state.trafficTimer); hideTip(); requestDraw(); }
 };
 $("#btnUnits").onclick = () => { state.units = metric() ? "aero" : "metric"; store.set("units", state.units); syncControls(); renderPanel(); };
 $("#btnZoomIn").onclick = () => map.zoomIn();
@@ -970,50 +1722,124 @@ document.addEventListener("keydown", e => {
   if (e.key === "/" && document.activeElement !== $("#q")) { e.preventDefault(); $("#q").focus(); }
   if (e.key === "Escape") { if (document.activeElement === $("#q")) $("#q").blur(); else if (state.query) closePanel(); }
 });
-document.addEventListener("visibilitychange", () => { if (!document.hidden) scheduleTraffic(0); });
+document.addEventListener("visibilitychange", () => { if (!document.hidden) { scheduleTraffic(0); animate(); } });
 
-/* ===================== Ajustes: servidor intermedio ===================== */
+/* ===================== Ajustes ===================== */
 let serverCode = null;
 async function loadServerCode() {
   if (serverCode) return serverCode;
   try { serverCode = await (await fetch("google-apps-script.js", { cache: "no-store" })).text(); } catch {}
   return serverCode;
 }
-function openSetup() {
+const setMsg = (id, cls, txt) => { const el = $(id); el.className = "modal-msg" + (cls ? " " + cls : ""); el.textContent = txt; };
+function setTag(id, txt, warn = false) { const el = $(id); el.textContent = txt; el.classList.toggle("warn", warn); }
+
+async function refreshServerInfo(force = false) {
+  const notice = $("#serverNotice");
+  notice.classList.remove("show");
+  $("#newSteps").open = !userServer;
+  $("#updSteps").open = false;
+  if (!userServer) { setTag("#serverTag", ""); return; }
+  if (!isGoogle(userServer)) { setTag("#serverTag", "no es de Google", true); return; }
+  setTag("#serverTag", "comprobando…");
+  const m = await serverVersion(userServer, force);
+  if (!m.ok) { setTag("#serverTag", "sin respuesta", true); notice.textContent = `Tu servidor no responde (${m.err || "error"}).`; notice.classList.add("show"); return; }
+  if (m.version >= 4) { setTag("#serverTag", `conectado · v${m.version}`); return; }
+  setTag("#serverTag", `v${m.version || 3} · actualizar`, true);
+  notice.textContent = `Tu servidor es la versión ${m.version || 3}. Actualízalo para ver los aviones de todo el mundo con el zoom alejado: son 2 minutos (pasos justo debajo).`;
+  notice.classList.add("show");
+  $("#updSteps").open = true;
+}
+function syncSetupTags() {
+  setTag("#adbTag", adbKey ? "activado" : "");
+  $("#adbSteps").open = !adbKey;
+  const w = traffic.worldErr;
+  setTag("#worldTag", traffic.worldAt && !w ? (traffic.worldAuth ? "con cuenta" : "sin cuenta") : w && w !== "update" && w !== "noserver" ? "no disponible" : "", !!w && w !== "update" && w !== "noserver");
+}
+function openSetup(section) {
   $("#proxyInput").value = userServer;
-  $("#setupMsg").textContent = ""; $("#setupMsg").className = "modal-msg";
+  $("#adbInput").value = adbKey;
+  ["#setupMsg", "#adbMsg", "#shareMsg"].forEach(id => setMsg(id, "", ""));
+  syncSetupTags();
+  refreshServerInfo();
   $("#setup").classList.add("open");
   loadServerCode(); // se descarga antes para poder copiarlo al instante (Safari lo exige)
+  const target = { adb: "#setAdb", world: "#setWorld", server: "#setServer" }[section];
+  if (target) setTimeout(() => $(target).scrollIntoView({ behavior: "smooth", block: "start" }), 60);
 }
 const closeSetup = () => $("#setup").classList.remove("open");
-$("#btnSettings").onclick = openSetup;
-$("#setupCancel").onclick = closeSetup;
+$("#btnSettings").onclick = () => openSetup();
+$("#setupX").onclick = closeSetup;
 $("#setup").addEventListener("click", e => { if (e.target.id === "setup") closeSetup(); });
-$("#copyCode").onclick = () => {
-  const msg = $("#setupMsg");
-  const fallback = () => { window.open("google-apps-script.js", "_blank"); msg.className = "modal-msg"; msg.textContent = "Se ha abierto el código en otra pestaña: selecciónalo todo y cópialo."; };
+document.querySelectorAll(".copy-code").forEach(btn => btn.onclick = () => {
+  const fallback = () => { window.open("google-apps-script.js", "_blank"); setMsg("#setupMsg", "", "Se ha abierto el código en otra pestaña: selecciónalo todo y cópialo."); };
   if (!serverCode || !navigator.clipboard) { fallback(); return; }
-  navigator.clipboard.writeText(serverCode).then(() => {
-    msg.className = "modal-msg ok"; msg.textContent = "Código copiado. Ahora pégalo en tu proyecto de Google.";
-  }, fallback);
-};
+  navigator.clipboard.writeText(serverCode).then(() => setMsg("#setupMsg", "ok", "Código copiado. Ahora pégalo en tu proyecto de Google."), fallback);
+});
 $("#setupSave").onclick = async () => {
-  const url = cleanServer($("#proxyInput").value), msg = $("#setupMsg");
-  if (!url) { userServer = ""; store.set("server", ""); closeSetup(); return; }
-  msg.className = "modal-msg"; msg.textContent = "Probando conexión… (la primera vez Google puede tardar unos segundos)";
+  const url = cleanServer($("#proxyInput").value);
+  if (!url) { userServer = ""; store.set("server", ""); refreshServerInfo(); return; }
+  setMsg("#setupMsg", "", "Probando conexión… (la primera vez Google puede tardar unos segundos)");
   try {
     const d = await callServer(url, "point/40.4/-3.6/50", 25000);
     const n = (d.ac || d.aircraft || []).length;
     userServer = url; goodServer = url; store.set("server", url);
-    msg.className = "modal-msg ok"; msg.textContent = `Conectado: ${n} aviones cerca de Madrid ahora mismo.`;
-    setTimeout(() => { closeSetup(); scheduleTraffic(0); const q = $("#q").value; if (q && !state.ac) search(q); }, 1500);
+    await refreshServerInfo(true);
+    const v = (serverMeta[url] || {}).version || 0;
+    setMsg("#setupMsg", "ok", `Conectado: ${n} aviones cerca de Madrid ahora mismo.${v >= 4 ? " Servidor al día." : ""}`);
+    traffic.worldErr = ""; traffic.worldRetryAt = 0; traffic.worldAt = 0;
+    scheduleTraffic(0);
+    const q = $("#q").value; if (q && !state.ac && !state.query) search(q);
   } catch (e) {
-    msg.className = "modal-msg err";
-    msg.textContent = `No responde (${errText(e)}). Comprueba que la dirección termina en /exec y que en "Quién tiene acceso" elegiste "Cualquier usuario".`;
+    setMsg("#setupMsg", "err", `No responde (${errText(e)}). Comprueba que la dirección termina en /exec y que en "Who has access" elegiste "Anyone".`);
   }
+};
+$("#adbSave").onclick = async () => {
+  const key = $("#adbInput").value.trim();
+  if (!key) { adbKey = ""; store.set("adbKey", ""); setMsg("#adbMsg", "", "Clave borrada."); syncSetupTags(); return; }
+  setMsg("#adbMsg", "", "Comprobando la clave…");
+  try {
+    // Consulta gratuita (0 unidades): estado de los datos del aeropuerto de Madrid
+    await adbFetch("/health/services/airports/LEMD/feeds", key, 0);
+    adbKey = key; store.set("adbKey", key);
+    setMsg("#adbMsg", "ok", "Clave correcta. Ya verás horarios, puertas y retrasos en cada vuelo.");
+    syncSetupTags();
+    if (state.query && !state.sched) lookupSchedule();
+  } catch (e) {
+    setMsg("#adbMsg", "err", `No funciona: ${errText(e)}.`);
+  }
+};
+// Enlace para pasar la configuración a otro dispositivo (va en el "#", no llega a ningún servidor)
+function cfgLink() {
+  const json = JSON.stringify({ s: userServer || "", k: adbKey || "" });
+  const b64 = btoa(unescape(encodeURIComponent(json))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  return `${location.origin}${location.pathname}#cfg=${b64}`;
+}
+function importCfgFromHash() {
+  const m = /^#cfg=([A-Za-z0-9_-]+)$/.exec(location.hash);
+  if (!m) return false;
+  try {
+    const cfg = JSON.parse(decodeURIComponent(escape(atob(m[1].replace(/-/g, "+").replace(/_/g, "/")))));
+    if (cfg.s) { userServer = cleanServer(cfg.s); store.set("server", userServer); }
+    if (cfg.k) { adbKey = String(cfg.k).trim(); store.set("adbKey", adbKey); }
+    history.replaceState(null, "", location.pathname + location.search);
+    setTimeout(() => toast("Configuración importada: este dispositivo ya está listo."), 400);
+    return true;
+  } catch { return false; }
+}
+$("#shareCfg").onclick = async () => {
+  if (!userServer && !adbKey) { setMsg("#shareMsg", "err", "Aún no hay nada que enviar: configura primero el servidor."); return; }
+  const url = cfgLink();
+  if (navigator.share) {
+    try { await navigator.share({ title: "Configuración de Skyline", url }); setMsg("#shareMsg", "ok", "Ábrelo en Safari en el otro dispositivo."); return; }
+    catch (e) { if (e && e.name === "AbortError") return; }
+  }
+  try { await navigator.clipboard.writeText(url); setMsg("#shareMsg", "ok", "Enlace copiado. Envíatelo (por ejemplo, en una nota o un mensaje a ti mismo) y ábrelo en Safari en el otro dispositivo."); }
+  catch { setMsg("#shareMsg", "", url); }
 };
 
 /* ===================== Arranque ===================== */
+importCfgFromHash();
 syncControls();
 renderChips();
 if (!userServer) openSetup();
@@ -1021,6 +1847,7 @@ measureTopbar();
 const initial = decodeURIComponent(location.hash.slice(1));
 if (initial) { $("#q").value = initial; search(initial); }
 scheduleTraffic(300);
+animate();
 window.addEventListener("hashchange", () => { const h = decodeURIComponent(location.hash.slice(1)); if (h && normalize(h) !== state.query) { $("#q").value = h; search(h); } });
 })();
 </script>
