@@ -17,10 +17,10 @@
  *   OPENSKY_CLIENT_ID y OPENSKY_CLIENT_SECRET
  *
  * Uso (desde la app):  .../exec?p=callsign/IBE3166   ?p=hex/3443c5   ?p=reg/EC-MXV
- *   ?p=point/40.4/-3.6/100   ?p=multi/40.4,-3.6,250;41.3,2.1,200   ?p=world   ?p=debug
+ *   ?p=point/40.4/-3.6/100   ?p=multi/40.4,-3.6,250;41.3,2.1,200   ?p=world   ?p=track/3443c5   ?p=debug
  */
 
-const VERSION = 4;
+const VERSION = 5;
 
 const SOURCES = [
   {
@@ -44,6 +44,7 @@ const SOURCES = [
 ];
 
 const OPENSKY_STATES = "https://opensky-network.org/api/states/all";
+const OPENSKY_TRACK = "https://opensky-network.org/api/tracks/all";
 const OPENSKY_TOKEN = "https://auth.opensky-network.org/auth/realms/opensky-network/protocol/openid-connect/token";
 const WORLD_TTL = 30; // segundos que se reutiliza la foto mundial (ahorra cupo de OpenSky)
 
@@ -57,7 +58,7 @@ const NUM = /^-?\d{1,3}(\.\d{1,6})?$/;
 function doGet(e) {
   const path = String((e && e.parameter && e.parameter.p) || (e && e.pathInfo) || "");
   const [kind, ...args] = path.split("/").filter(String);
-  if (!kind) return out({ ok: true, service: "skyline-proxy", platform: "google-apps-script", version: VERSION, features: ["world", "multi"] });
+  if (!kind) return out({ ok: true, service: "skyline-proxy", platform: "google-apps-script", version: VERSION, features: ["world", "multi", "track"] });
 
   if (kind === "debug") {
     const results = SOURCES.map(s => query(s, "point", ["40.4", "-3.6", "50"]));
@@ -72,6 +73,7 @@ function doGet(e) {
 
   if (kind === "world") return outRaw(world());
   if (kind === "multi") return out(multi(args[0]));
+  if (kind === "track") return out(track(args[0]));
 
   const valid =
     (["callsign", "hex", "reg"].includes(kind) && args.length === 1 && ID.test(args[0])) ||
@@ -192,6 +194,36 @@ function world() {
   const json = JSON.stringify({ t: d.time, src: "opensky", auth: !!token, left: left, n: a.length, ms: Date.now() - started, a: a });
   try { cachePutBig(cache, "world", json, WORLD_TTL); } catch (err) { /* sin caché: no pasa nada */ }
   return json;
+}
+
+/* ---------- Trayectoria completa del vuelo actual (OpenSky) ---------- */
+// Puntos: [hora UNIX, lat, lon, altitud ft, rumbo, en tierra 0/1]
+function track(hex) {
+  hex = String(hex || "").toLowerCase();
+  if (!/^[0-9a-f]{6}$/.test(hex)) return { error: "bad request" };
+  const cache = CacheService.getScriptCache(), key = "trk:" + hex;
+  const hit = cache.get(key);
+  if (hit) return JSON.parse(hit);
+  let token = null;
+  try { token = openskyToken(); } catch (err) { token = null; }
+  const headers = { Accept: "application/json" };
+  if (token) headers.Authorization = "Bearer " + token;
+  let r;
+  try {
+    r = UrlFetchApp.fetch(OPENSKY_TRACK + "?icao24=" + hex + "&time=0", { muteHttpExceptions: true, headers: headers });
+  } catch (err) {
+    return { error: "opensky: " + String((err && err.message) || err) };
+  }
+  const code = r.getResponseCode();
+  if (code === 404) return { hex: hex, path: [] };
+  if (code !== 200) return { error: "opensky HTTP " + code + (code === 429 ? " (cupo diario agotado)" : "") };
+  let d;
+  try { d = JSON.parse(r.getContentText()); } catch (err) { return { error: "opensky: respuesta no válida" }; }
+  const path = (d.path || []).filter(p => p[1] != null && p[2] != null)
+    .map(p => [p[0], round4(p[1]), round4(p[2]), p[3] != null ? Math.round(p[3] * 3.28084) : null, rnd(p[4]), p[5] ? 1 : 0]);
+  const res = { hex: hex, cs: String(d.callsign || "").trim(), start: d.startTime, end: d.endTime, path: path };
+  try { cache.put(key, JSON.stringify(res), 120); } catch (err) { /* demasiado grande para la caché */ }
+  return res;
 }
 
 function openskyCredentials() {
